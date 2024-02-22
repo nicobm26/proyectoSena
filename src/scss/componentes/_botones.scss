@@ -1,0 +1,14 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.boton{
+    @include m.boton(v.$azul, v.$blanco)
+}
+
+.boton-comun{
+    @include m.boton(yellow, black);
+    max-width: 30%;
+    text-align: center;
+    margin: 0 auto 2rem auto;
+
+}

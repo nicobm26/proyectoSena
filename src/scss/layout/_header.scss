@@ -1,0 +1,38 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.bg-menu{
+    background-color: #E5C42E;
+    margin-bottom: 3rem;
+}
+
+.nav__menu{
+    margin: 0;
+    padding: 2rem 0;
+    font-size: 2rem;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+@media (max-width: 320px) {
+    .nav__menu{   
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+}
+
+.item__link{
+    text-decoration: none;
+    color: v.$negro;
+}
+
+.menu__inicio{
+    width: 45px;
+    height: 45px;
+}
+.menu__link{
+    text-decoration: none;
+}

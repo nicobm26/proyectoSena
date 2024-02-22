@@ -1,0 +1,44 @@
+<div class="login">
+    <!-- <img src="assets/img/login-bg.png" alt="login image" class="login__img"> -->
+    <!-- <img src="assets/img/FONDO.jfif" alt="login image" class="login__img"> -->
+
+    <form action="" class="login__form">
+        <h1 class="login__title">Login</h1>
+
+        <div class="login__content">
+            <div class="login__box">
+                <i class="ri-user-3-line login__icon"></i>
+
+                <div class="login__box-input">
+                    <input type="email" required class="login__input" id="login-email" placeholder=" ">
+                    <label for="login-email" class="login__label">Email</label>
+                </div>
+            </div>
+
+            <div class="login__box">
+                <i class="ri-lock-2-line login__icon"></i>
+
+                <div class="login__box-input">
+                    <input type="password" required class="login__input" id="login-pass" placeholder=" ">
+                    <label for="login-pass" class="login__label">Contraseña</label>
+                    <i class="ri-eye-off-line login__eye" id="login-eye"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="login__check">
+            <div class="login__check-group">
+                <input type="checkbox" class="login__check-input" id="login-check">
+                <label for="login-check" class="login__check-label">Recordar me</label>
+            </div>
+
+            <a href="#" class="login__forgot">Olvidaste tu contraseña?</a>
+        </div>
+
+        <button type="submit" class="login__button">Iniciar Sesión</button>
+
+        <p class="login__register">
+            No tienes una cuenta? <a href="#">Registrar</a>
+        </p>
+    </form>
+</div>
