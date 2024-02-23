@@ -1,0 +1,175 @@
+:root {
+    --color-1: #F2D541;
+    --color-2: #F2C641;
+    --color-3: #F2F2F2;
+    --color-4: #000000; 
+    --fuente: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--fuente);
+    background-color: var(--color-3);    
+    margin: 0;
+    font-size: 1rem;
+    width: auto;
+}
+
+.contenido-header{
+    width: auto;
+    height: auto;
+    margin: auto;    
+}
+
+.barra {
+    background-color: var(--color-2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    width: auto;    
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 8rem;
+}
+
+
+.barra .enlaces {
+    display: flex;
+    font-size: 1rem;
+}
+
+.barra .enlaces a {
+    color: var(--color-3);
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: color 0.3s;
+    font-weight: bolder;
+}
+
+.barra .enlaces a:hover {
+    color: var(--color-4);
+}
+
+.enlaces {
+    margin-right: 1.5rem;
+}
+
+.banner{
+    background-image: url(../img/apiario3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 250px;
+    position: relative;
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    width: auto;
+}
+
+.contenido-banner{
+    position:absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-banner h1{
+    color: var(--color-2);
+}
+
+.contenedor{
+    width: auto;
+    margin-top: 10px;
+    margin-right: 2rem;
+    margin-bottom: 0;
+    margin-left: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.sombra{
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.75);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.75);
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.75);
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario {
+    border: 1px solid #CED5D7;
+    border-radius: 6px;
+    padding: 45px 45px 20px;
+    margin-top: 50px;
+    background-color: white;
+    box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+    width: auto;
+}
+
+.formulario label{
+    display: block; 
+    font-weight: bold;
+}
+.formulario div{
+    margin-bottom: 15px; 
+}
+
+.campo input{
+    padding: 7px 6px;
+    width: 400px;
+    border: 1px solid #CED5D7;
+    box-shadow:0 0 0 3px #EEF5F7;
+    margin: 5px 0;
+}
+
+.campo textarea{
+    padding: 7px 6px;
+    width: 400px; 
+    height: 200px;
+    border: 1px solid #CED5D7;
+    resize: none; 
+    box-shadow:0 0 0 3px #EEF5F7;
+    margin: 5px 0;
+}
+
+.campo input:focus, .campo textarea:focus{
+    outline: none; 
+    box-shadow:0 0 0 3px #dde9ec;
+}
+
+.boton-enviar input{
+    background-color: var(--color-4);
+    color: var(--color-2);
+    border-radius: 7px;
+    font-weight: bold;
+    border: 1px solid var(--color-2);
+    cursor: pointer;
+    width: 100px;
+    height: auto;
+}
+
+.boton-enviar input:hover {
+    background-color: var(--color-2);
+    color: var(--color-4);
+}
+
+.mapa h3{
+    text-align: center;
+}
+
+.mapa iframe{
+    border: 1px solid #CED5D7;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+}
