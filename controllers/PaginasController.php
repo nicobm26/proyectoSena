@@ -15,8 +15,12 @@ class PaginasController{
     }
 
     public static function nosotros(Router $router){
-        $router->mostrarVista("paginas/nosotros",[
-                
+        $router->mostrarVista("paginas/nosotros",[                
+        ]);
+    }
+
+    public static function contactanos(Router $router){
+        $router->mostrarVista("paginas/contacto",[                
         ]);
     }
 }
