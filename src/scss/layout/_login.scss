@@ -1,3 +1,6 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
 input,
 button{
 	border: none;
@@ -6,7 +9,8 @@ button{
 /*=============== LOGIN ===============*/
 .login{
    position: relative;
-   height: 100vh;
+   // height: 100vh;
+   height: calc(100vh - 200px);
    display: grid;
    align-items: center;
 
@@ -20,7 +24,7 @@ button{
    &__form{
       position: relative;
       // background-color: hsla(0, 0%, 10%, .1);
-      background-color: lightblue;
+      background-color: #2d3133;
       border: 2px solid var(--white-color);
       margin-inline: 1.5rem;
       padding: 2.5rem 1.5rem;
@@ -32,6 +36,7 @@ button{
       font-size: var(--h1-font-size);
       font-weight: var(--font-medium);
       margin-bottom: 2rem;
+      color: white;
    }
    &__content,
    &__box{
@@ -45,7 +50,7 @@ button{
       grid-template-columns: max-content 1fr ;
       align-items: center;
       column-gap: .75rem;
-      border-bottom: 2px solid var(--white-color);
+      border-bottom: 2px solid white;
    }
    &__icon,
    &__eye{
@@ -115,12 +120,13 @@ button{
       font-weight: var(--font-medium);
       cursor: pointer;
       margin-bottom: 2rem;
+      color: white;
    }
    &__register{
       text-align: center;
-
+      color: white;
       & a{
-         color: var(--white-color);
+         color: v.$colorCabacera;
          font-weight: var(--font-medium);
 
          &:hover{
@@ -141,3 +147,18 @@ button{
    top: -12px;
    font-size: var(--small-font-size);
 }
+
+
+@media screen and (min-width: 576px) {
+   .login {
+     justify-content: center;
+   }
+   .login__form {
+     width: 432px;
+     padding: 4rem 3rem 3.5rem;
+     border-radius: 1.5rem;
+   }
+   .login__title {
+     font-size: 2rem;
+   }
+ }
