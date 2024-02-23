@@ -19,6 +19,8 @@ $router->get("/nosotros", [PaginasController::class, 'nosotros']);
 //Login y Autenticacion
 $router->get("/login", [LoginController::class, 'login']);
 $router->post("/login", [LoginController::class, 'login']);
+$router->get("/registrar", [LoginController::class, 'registrar']);
+$router->post("/registrar", [LoginController::class, 'registrar']);
 $router->get("/logout", [LoginController::class, 'logout']);
 
 
