@@ -13,6 +13,9 @@ $router = new Router();
 $router->get("/", [PaginasController::class, 'index']); //dominio (/)
 $router->get("/nosotros", [PaginasController::class, 'nosotros']);
 
+$router->get("/contactanos", [PaginasController::class, 'contactanos']);
+$router->post("/contactanos", [PaginasController::class, 'contactanos']);
+
 
 
 
