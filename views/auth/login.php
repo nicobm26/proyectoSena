@@ -38,7 +38,7 @@
         <button type="submit" class="login__button">Iniciar Sesión</button>
 
         <p class="login__register">
-            No tienes una cuenta? <a href="#">Registrar</a>
+            No tienes una cuenta? <a href="/registrar">Registrar</a>
         </p>
     </form>
 </div>
