@@ -9,9 +9,9 @@
           
    <div class="centrar">  
             <picture>
-                <source srcset= "../build/img/Ilder Apicultor.webp" type="image/webp">
-                <source srcset= "../build/img/Ilder Apicultor.jpg" type="image/jpeg">
-                <img class="imagen" loading="lazy" width="200" height="300" src="../build/img/Ilder Apicultor.jpg" alt="Sobre Nosotros">
+                <source srcset= "../build/img/IlderApicultor.webp" type="image/webp">
+                <source srcset= "../build/img/IlderApicultor.jpg" type="image/jpeg">
+                <img class="imagen" loading="lazy" width="200" height="300" src="../build/img/IlderApicultor.jpg" alt="Sobre Nosotros">
             </picture>    
             <!-- <img loading="lazy" width="200" height="300" src="../build/img/Ilder Apicultor.jpg" alt="Sobre Nosotros">                -->
    </div>

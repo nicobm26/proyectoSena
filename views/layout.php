@@ -6,6 +6,8 @@
     <title>App Salón</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;900&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="build/css/app.css">
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
     <header class="bg-menu">
@@ -13,7 +15,7 @@
             <ul class="nav__menu">
                 <li class="menu__item">
                     <a href="#" class="item__link">
-                        <img class="menu__inicio" src="../build/img/logo.png" alt="Logo de Apicola Genesis">
+                        <img class="menu__inicio" src="../build/img/logoOpcion2.jpg" alt="Logo de Apicola Genesis">
                     </a>
                 </li>
                 <li class="menu__item"><a class="item__link" href="/nosotros">Apícola Génesis</a></li>
