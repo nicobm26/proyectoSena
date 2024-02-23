@@ -20,7 +20,7 @@
                 </li>
                 <li class="menu__item"><a class="item__link" href="/nosotros">Apícola Génesis</a></li>
                 <li class="menu__item"><a class="item__link" href="#">Productos</a></li>
-                <li class="menu__item"><a class="item__link" href="#">Contáctenos</a></li>
+                <li class="menu__item"><a class="item__link" href="/contactanos">Contáctenos</a></li>
                 <li class="menu__item"><a class="item__link" href="/login">Iniciar Sesión</a></li>
             </ul>
         </nav>
