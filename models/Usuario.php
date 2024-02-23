@@ -77,7 +77,8 @@ class Usuario extends ActiveRecord{
         }else{
             //En teoria nunca tendria que llegar aca, porque solo hay 3 casos posibles
             self::$alertas['error'][] = 'El correo y la cedula ya estan registradas';
-        }   
+        }
+        return self::$alertas;
     }
 }
 ?>
