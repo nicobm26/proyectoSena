@@ -1,5 +1,6 @@
 <?php
 namespace Model;
+
 class ActiveRecord {
 
     // Base DE DATOS
@@ -56,17 +57,16 @@ class ActiveRecord {
                 $objeto->$key = $value;
             }
         }
-
         return $objeto;
     }
 
     // Identificar y unir los atributos de la BD
-    public function atributos() {
-        $atributos = [];
+    public function atributos() {       
+        $atributos = [];       
         foreach(static::$columnasDB as $columna) {
-            if($columna === 'id') continue;
+            if($columna === 'id') continue;          
             $atributos[$columna] = $this->$columna;
-        }
+        }    
         return $atributos;
     }
 
@@ -97,6 +97,21 @@ class ActiveRecord {
             $resultado = $this->actualizar();
         } else {
             // Creando un nuevo registro
+            $resultado = $this->crear();
+        }
+        return $resultado;
+    }
+
+    // Registros - CRUD
+    //Es decir, la llave primaria no es generada automaticamente
+    public function guardarLLaveDefinida($clavePrimaria) {
+        $resultado = '';
+        if(!is_null($this->where($clavePrimaria, $this->$clavePrimaria))) {
+            // actualizar        
+            $resultado = $this->actualizar();
+        } else {
+            // Creando un nuevo registro
+            // debuguear('crear');
             $resultado = $this->crear();
         }
         return $resultado;
@@ -136,7 +151,6 @@ class ActiveRecord {
     public function crear() {
         // Sanitizar los datos
         $atributos = $this->sanitizarAtributos();
-
         // Insertar en la base de datos
         $query = " INSERT INTO " . static::$tabla . " ( ";
         $query .= join(', ', array_keys($atributos));
@@ -149,6 +163,25 @@ class ActiveRecord {
         return [
            'resultado' =>  $resultado,
            'id' => self::$db->insert_id
+        ];
+    }
+
+    // crea un nuevo registro, NO la estoy usando
+    public function crearLLaveDefinida() {
+        // Sanitizar los datos
+        $atributos = $this->sanitizarAtributos();
+
+        // Insertar en la base de datos
+        $query = " INSERT INTO " . static::$tabla . " ( ";
+        $query .= join(', ', array_keys($atributos));
+        $query .= " ) VALUES (' "; 
+        $query .= join("', '", array_values($atributos));
+        $query .= " ') ";
+
+        // Resultado de la consulta
+        $resultado = self::$db->query($query);
+        return [
+           'resultado' =>  $resultado           
         ];
     }
 
