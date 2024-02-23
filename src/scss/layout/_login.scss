@@ -13,6 +13,7 @@ button{
    height: calc(100vh - 200px);
    display: grid;
    align-items: center;
+   margin-top: 3rem;
 
    &__img{
       position: absolute;
