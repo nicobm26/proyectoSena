@@ -27,5 +27,57 @@ class Usuario extends ActiveRecord{
         $this->token = $args['token'] ?? '';
     }
    
+    // Mensajes de validacion para la creacion de una cuenta
+    public function validarNuevaCuenta(){
+
+        // Debe tener mínimo 5 dígitos y máximo 11 dígitos
+        if (!empty($this->telefono) && !preg_match("/^[0-9]{5,11}$/", $this->telefono)) {
+            self::$alertas['error'][] = 'El número de cedula debe tener entre 5 y 11 dígitos.';
+        }
+
+        if(!$this->nombres){
+            self::$alertas['error'][] = 'El nombre es obligatorio';
+        }else if (! preg_match("/^[a-zA-Z ]+$/", $this->nombres)){
+            self::$alertas['error'][] = 'El nombre no puede llevar numeros o caraceteres especiales';
+        }
+
+        if(!$this->apellidos){
+            self::$alertas['error'][] = 'El Apellido es obligatorio';
+        }else if (! preg_match("/^[a-zA-Z ]+$/", $this->apellidos)){
+            self::$alertas['error'][] = 'El Apellido no puede llevar numeros o caraceteres especiales';
+        }
+        
+        // No es obligatorio el telefono, pero si debe tener el formato de 10 numeros
+        if(!empty($this->telefono)  && !preg_match("/^[0-9]{10}$/", $this->telefono)){
+            self::$alertas['error'][] = 'El numero de telefono solo puede tener 10 numeros';
+        }
+
+        if(empty($this->correo) ){
+            self::$alertas['error'][] = 'El correo es obligatorio';
+        }else if(!filter_var($this->correo, FILTER_VALIDATE_EMAIL)) {
+            self::$alertas['error'][] = 'El correo no tiene el formato correcto';
+        }
+
+        if(!$this->clave){
+            self::$alertas['error'][] = 'La contraseña es obligatoria';
+        }else if( !preg_match("/^(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){5,})(?=(?:.*[0-9]){1})/", $this->clave)){
+            self::$alertas['error'][] = "La contraseña no es válida. Debe contener al menos 5 letras minúsculas, un número y una letra mayúscula.";
+        }
+
+        return self::$alertas;
+    }
+
+    public function validarNoCrearUsuariosExistentes($resultadoCedula , $resultadoCorreo){
+        if(empty($resultadoCedula) && !empty($resultadoCorreo)){
+            //Error, correo ya registrado
+            self::$alertas['error'][] = 'El correo ya esta registrado';
+        }else if(!empty($resultadoCedula) && empty($resultadoCorreo)){
+            //Error, cedula ya registrada
+            self::$alertas['error'][] = 'La cedula ya esta registrada';    
+        }else{
+            //En teoria nunca tendria que llegar aca, porque solo hay 3 casos posibles
+            self::$alertas['error'][] = 'El correo y la cedula ya estan registradas';
+        }   
+    }
 }
 ?>
