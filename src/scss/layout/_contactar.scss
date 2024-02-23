@@ -6,59 +6,13 @@
     --fuente: 'Montserrat', sans-serif;
 }
 
-body {
-    font-family: var(--fuente);
-    background-color: var(--color-3);    
-    margin: 0;
-    font-size: 1rem;
-    width: auto;
-}
-
-.contenido-header{
-    width: auto;
-    height: auto;
-    margin: auto;    
-}
-
-.barra {
-    background-color: var(--color-2);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    width: auto;    
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    width: 8rem;
-}
-
-
-.barra .enlaces {
-    display: flex;
-    font-size: 1rem;
-}
-
-.barra .enlaces a {
-    color: var(--color-3);
-    text-decoration: none;
-    padding: 10px 20px;
-    transition: color 0.3s;
-    font-weight: bolder;
-}
-
-.barra .enlaces a:hover {
-    color: var(--color-4);
-}
-
-.enlaces {
-    margin-right: 1.5rem;
-}
+// body {
+//     font-family: var(--fuente);
+//     background-color: var(--color-3);    
+//     margin: 0;
+//     font-size: 1.6rem;
+//     width: auto;
+// }
 
 .banner{
     background-image: url(../img/apiario3.jpg);
@@ -66,8 +20,8 @@ body {
     background-size: cover;
     height: 250px;
     position: relative;
-    margin-bottom: 2rem;
-    margin-top: 0.5rem;
+    margin-bottom: 3.2rem;
+    margin-top: 0rem;
     width: auto;
 }
 
@@ -86,12 +40,12 @@ body {
     color: var(--color-2);
 }
 
-.contenedor{
+.contenedor-contactanos{
     width: auto;
     margin-top: 10px;
-    margin-right: 2rem;
+    margin-right: 3.2rem;
     margin-bottom: 0;
-    margin-left: 2rem;
+    margin-left: 3.2rem;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -102,11 +56,11 @@ body {
     -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.75);
     box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.75);
     background-color: white;
-    padding: 2rem;
-    border-radius: 1rem;
+    padding: 3.2rem;
+    border-radius: 2.56rem;
 }
 
-.formulario {
+.formulario-contacto {
     border: 1px solid #CED5D7;
     border-radius: 6px;
     padding: 45px 45px 20px;
@@ -116,15 +70,16 @@ body {
     width: auto;
 }
 
-.formulario label{
+.formulario-contacto label{
     display: block; 
     font-weight: bold;
+    color: #000000;
 }
-.formulario div{
+.formulario-contacto div{
     margin-bottom: 15px; 
 }
 
-.campo input{
+.campo-contacto input{
     padding: 7px 6px;
     width: 400px;
     border: 1px solid #CED5D7;
@@ -132,7 +87,7 @@ body {
     margin: 5px 0;
 }
 
-.campo textarea{
+.campo-contacto textarea{
     padding: 7px 6px;
     width: 400px; 
     height: 200px;
@@ -142,7 +97,7 @@ body {
     margin: 5px 0;
 }
 
-.campo input:focus, .campo textarea:focus{
+.campo-contacto input:focus, .campo-contacto textarea:focus{
     outline: none; 
     box-shadow:0 0 0 3px #dde9ec;
 }
