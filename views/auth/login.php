@@ -42,3 +42,9 @@
         </p>
     </form>
 </div>
+
+<?php
+    $script = "
+    <script src='build/js/mostrarPassword.js'> </script> 
+    ";
+?>
