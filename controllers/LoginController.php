@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Model\Usuario;
 use MVC\Router;
 
 class LoginController{
@@ -10,34 +11,37 @@ class LoginController{
         $errores = [];
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        
-            // $auth = new Admin($_POST);
-
-            // $errores = $auth->validar();
-
-            // //Verificar si existe un usuario
-            // $resultado = $auth->existeUsuario();
-
-            // if(! $resultado){
-            //     // No existe el usuario (traer mensaje de error)
-            //     $errores = Admin::getErrores();
-            // }else{
-            //     // Si existe el usuario
-            //     // Verificar la contraseña
-            //     $autenticado = $auth->comprobarPassword($resultado);
-
-            //     if($autenticado){
-            //         $auth->autenticar();
-            //     }else{
-            //         $errores = Admin::getErrores();
-            //     }
-
-            // }
             
         }
 
         $router->mostrarVista("/auth/login",[
             "errores" => $errores
+        ]);
+    }
+
+    public static function registrar(Router $router){
+        $alertas = [];
+        $usuario = new Usuario();
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            // debuguear($_POST);
+            $usuario->sincronizar($_POST);
+            $alertas = $usuario->validarNuevaCuenta();
+            if(empty($alertas)){
+                $resultadoCedula = Usuario::where("cedula" , $usuario->cedula);
+                $resultadoCorreo = Usuario::where("correo" , $usuario->correo);
+                $alertas = $usuario->validarNoCrearUsuariosExistentes($resultadoCedula,$resultadoCorreo);
+
+                if(empty($alertas)){
+                    //crear
+                    $usuario->guardarLLaveDefinida('cedula');            
+                    debuguear($usuario);
+                }
+            }                                
+        }
+
+        $router->mostrarVista("/auth/registrar",[
+            "usuario" => $usuario,
+            "alertas"=> $alertas
         ]);
     }
 
