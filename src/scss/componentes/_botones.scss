@@ -6,9 +6,16 @@
 }
 
 .boton-comun{
-    @include m.boton(yellow, black);
+    @include m.boton(v.$colorCabacera, v.$colorTexto);
     max-width: 30%;
     text-align: center;
     margin: 0 auto 2rem auto;
+    border-radius: 1rem;
+}
 
+.boton-comun-enviar{
+    @include m.boton(v.$colorCabacera, v.$colorTexto);
+    text-align: center;
+    margin: 0 auto 2rem auto;
+    border-radius: 1rem;
 }

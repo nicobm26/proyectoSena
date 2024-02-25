@@ -14,6 +14,7 @@ button{
    display: grid;
    align-items: center;
    margin-top: 3rem;
+   margin: 4rem auto 2rem auto; 
 
    &__img{
       position: absolute;
@@ -31,6 +32,7 @@ button{
       padding: 4rem 2.4rem;
       border-radius: 1.6rem;
       backdrop-filter: blur(8px);
+      margin: 0 auto;
    }
    &__title{
       text-align: center;

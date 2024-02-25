@@ -1,3 +1,6 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
 :root {
     --color-1: #F2D541;
     --color-2: #F2C641;
@@ -7,26 +10,29 @@
 }
 
 // body {
-//     font-family: var(--fuente);
-//     background-color: var(--color-3);    
-//     margin: 0;
-//     font-size: 1.6rem;
-//     width: auto;
+//     min-height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     background-color: v.$colorFondoPagina;
+//     color: v.$blanco;
+// }
+// *, *:before, *:after {
+//     box-sizing: inherit;
 // }
 
-.banner{
+.banner {
     background-image: url(../img/apiario3.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
-    height: 250px;
+    background-size: 100% 100%; /* La imagen de fondo se ajustará al 100% del ancho y alto del contenedor */
+    height: 250px; /* Ajusta la altura del contenedor según sea necesario */
     position: relative;
     margin-bottom: 3.2rem;
     margin-top: 0rem;
     width: auto;
 }
 
-.contenido-banner{
-    position:absolute;
+.contenido-banner {
+    position: absolute;
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
     height: 100%;
@@ -47,8 +53,14 @@
     margin-bottom: 0;
     margin-left: 3.2rem;
     display: flex;
+    flex-direction: column;   
     justify-content: space-evenly;
     align-items: center;
+    gap: 2rem;
+    @include m.tablet {
+        display: flex;
+        flex-direction: row;        
+    }
 }
 
 .sombra{
@@ -62,12 +74,17 @@
 
 .formulario-contacto {
     border: 1px solid #CED5D7;
-    border-radius: 6px;
-    padding: 45px 45px 20px;
-    margin-top: 50px;
-    background-color: white;
-    box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
-    width: auto;
+        border-radius: 6px;
+        padding: 45px 45px 20px;
+        margin-top: 50px;
+        background-color: white;
+        box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+    @include m.tablet {        
+        width: auto; // Ancho automático para tablets
+    }
+    @include m.desktop {
+        width: 500px;
+    }
 }
 
 .formulario-contacto label{
@@ -81,20 +98,23 @@
 
 .campo-contacto input{
     padding: 7px 6px;
-    width: 400px;
+    width: auto;
     border: 1px solid #CED5D7;
     box-shadow:0 0 0 3px #EEF5F7;
     margin: 5px 0;
 }
 
 .campo-contacto textarea{
-    padding: 7px 6px;
-    width: 400px; 
-    height: 200px;
+    padding: 7px 6px; 
+    height: 9rem;
     border: 1px solid #CED5D7;
     resize: none; 
     box-shadow:0 0 0 3px #EEF5F7;
     margin: 5px 0;
+    width: 100%;
+    @include m.tablet {
+        width: auto;
+    };
 }
 
 .campo-contacto input:focus, .campo-contacto textarea:focus{
@@ -123,8 +143,11 @@
 }
 
 .mapa iframe{
-    border: 1px solid #CED5D7;
-    border-radius: 6px;
-    background-color: white;
-    box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+    @include m.tablet {
+        border: 1px solid #CED5D7;
+        border-radius: 6px;
+        background-color: white;
+        box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+    }
+    width: 400px;   
 }

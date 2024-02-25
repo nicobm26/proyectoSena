@@ -22,8 +22,8 @@
                 <label for="mensaje">Mensaje:</label>
                 <textarea id="mensaje" required></textarea>
             </div>
-            <div class="boton-enviar">
-                <input type="submit" value="Enviar" >
+            <div>
+                <input class="boton-comun-enviar"  type="submit" value="Enviar" >
             </div>
         </form>
 
