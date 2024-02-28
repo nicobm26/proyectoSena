@@ -12,9 +12,16 @@ $router = new Router();
 //Paginas publicas de los visitantes
 $router->get("/", [PaginasController::class, 'index']); //dominio (/)
 $router->get("/nosotros", [PaginasController::class, 'nosotros']);
+$router->get("/productos", [PaginasController::class, 'productos']);
 
 $router->get("/contactanos", [PaginasController::class, 'contactanos']);
 $router->post("/contactanos", [PaginasController::class, 'contactanos']);
+
+
+
+//Panel administracion
+// $router->get("/admin", [::class, 'contactanos']);
+// $router->post("/contactanos", [PaginasController::class, 'contactanos']);
 
 
 
