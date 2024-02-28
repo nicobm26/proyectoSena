@@ -68,17 +68,26 @@ class Usuario extends ActiveRecord{
     }
 
     public function validarNoCrearUsuariosExistentes($resultadoCedula , $resultadoCorreo){
-        if(empty($resultadoCedula) && !empty($resultadoCorreo)){
+        if( $resultadoCedula==null && $resultadoCorreo !==null){
             //Error, correo ya registrado
             self::$alertas['error'][] = 'El correo ya esta registrado';
-        }else if(!empty($resultadoCedula) && empty($resultadoCorreo)){
+        }else if($resultadoCedula!==null && $resultadoCorreo==null){
             //Error, cedula ya registrada
             self::$alertas['error'][] = 'La cedula ya esta registrada';    
-        }else{
+        }else if($resultadoCedula!==null && $resultadoCorreo!==null){
             //En teoria nunca tendria que llegar aca, porque solo hay 3 casos posibles
             self::$alertas['error'][] = 'El correo y la cedula ya estan registradas';
         }
         return self::$alertas;
+    }
+
+    public function hashPassword(){
+        $this->clave = password_hash($this->clave, PASSWORD_BCRYPT);
+    }
+
+    public function crearToken(){
+        // $this->token = uniqid();
+        $this->token = bin2hex(random_bytes(8)); // "8" genera un string aleatorio de 16 caracteres, un poco mas seguro
     }
 }
 ?>
