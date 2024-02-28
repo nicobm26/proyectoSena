@@ -16,7 +16,16 @@
                 <i class="ri-user-3-line login__icon"></i>
 
                 <div class="login__box-input">
-                    <input type="number" required class="login__input" id="cedula" name="cedula" placeholder=" ">
+                    <input 
+                        type="number" 
+                        required 
+                        class="login__input" 
+                        id="cedula" 
+                        name="cedula" 
+                        placeholder=" "
+                        value="<?php echo s($usuario->cedula) ?>"
+                        >
+                        
                     <label for="cedula" class="login__label">Cedula</label>
                 </div>
             </div>
@@ -26,7 +35,16 @@
                 <i class="ri-user-3-line login__icon"></i>
 
                 <div class="login__box-input">
-                    <input type="email" required class="login__input" id="login-email" name="correo" placeholder=" ">
+                    <input 
+                        type="email" 
+                        required 
+                        class="login__input" 
+                        id="login-email" 
+                        name="correo" 
+                        placeholder=" "
+                        value="<?php echo s($usuario->correo) ?>"
+                        >
+                        
                     <label for="login-email" class="login__label">Email</label>
                 </div>
             </div>
@@ -36,7 +54,16 @@
                 <i class="ri-user-3-line login__icon"></i>
 
                 <div class="login__box-input">
-                    <input type="text" required class="login__input" id="nombre" name="nombres" placeholder=" ">
+                    <input 
+                        type="text" 
+                        required 
+                        class="login__input" 
+                        id="nombre" 
+                        name="nombres" 
+                        placeholder=" "
+                        value="<?php echo s($usuario->nombres)?>"
+                        >
+
                     <label for="nombre" class="login__label">Nombres</label>
                 </div>
             </div>
@@ -47,7 +74,15 @@
                 <i class="ri-user-3-line login__icon"></i>
 
                 <div class="login__box-input">
-                    <input type="text" required class="login__input" id="apellidos" name="apellidos" placeholder=" ">
+                    <input 
+                        type="text" 
+                        required 
+                        class="login__input" 
+                        id="apellidos" 
+                        name="apellidos" 
+                        placeholder=" "
+                        value="<?php echo s($usuario->apellidos)?>"
+                        >
                     <label for="apellidos" class="login__label">Apellidos</label>
                 </div>
             </div>
@@ -58,7 +93,15 @@
                 <i class="ri-phone-fill login__icon"></i>
 
                 <div class="login__box-input">
-                    <input type="number" required class="login__input" id="telefono" name="telefono" placeholder=" ">
+                    <input 
+                        type="number" 
+                        required 
+                        class="login__input" 
+                        id="telefono" 
+                        name="telefono" 
+                        placeholder=" "
+                        value="<?php echo s($usuario->telefono)?>"
+                        >
                     <label for="telefono" class=" login__label">Telefono</label>
                 </div>
             </div>
@@ -69,7 +112,13 @@
                 <i class="ri-lock-2-line login__icon"></i>
 
                 <div class="login__box-input">
-                    <input type="password" required class="login__input" id="clave" name="clave" placeholder=" ">
+                    <input type="password" 
+                        required 
+                        class="login__input" 
+                        id="clave" 
+                        name="clave" 
+                        placeholder=" "
+                        >
                     <label for="clave" class="login__label">Contraseña</label>
                     <i class="ri-eye-off-line login__eye" id="login-eye1"></i>
                 </div>
@@ -101,7 +150,7 @@
         <button type="submit" class="login__button">Crear Cuenta</button>
 
         <p class="login__register">
-            Ya tienes una cuenta? <a href="/login">Registrar</a>
+            Ya tienes una cuenta? <a href="/login">Entrar</a>
         </p>
     </form>
 </div>
