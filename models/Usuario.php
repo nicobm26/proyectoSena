@@ -67,6 +67,22 @@ class Usuario extends ActiveRecord{
         return self::$alertas;
     }
 
+    public function validarLogin(){
+        if(empty($this->correo) ){
+            self::$alertas['error'][] = 'El correo es obligatorio';
+        }else if(!filter_var($this->correo, FILTER_VALIDATE_EMAIL)) {
+            self::$alertas['error'][] = 'El correo no tiene el formato correcto';
+        }
+
+        if(!$this->clave){
+            self::$alertas['error'][] = 'La contraseña es obligatoria';
+        }else if( !preg_match("/^(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){5,})(?=(?:.*[0-9]){1})/", $this->clave)){
+            self::$alertas['error'][] = "La contraseña no es válida. Debe contener al menos 5 letras minúsculas, un número y una letra mayúscula.";
+        }
+
+        return self::$alertas;
+    }
+
     public function validarNoCrearUsuariosExistentes($resultadoCedula , $resultadoCorreo){
         if( $resultadoCedula==null && $resultadoCorreo !==null){
             //Error, correo ya registrado
@@ -88,6 +104,16 @@ class Usuario extends ActiveRecord{
     public function crearToken(){
         // $this->token = uniqid();
         $this->token = bin2hex(random_bytes(8)); // "8" genera un string aleatorio de 16 caracteres, un poco mas seguro
+    }
+
+    public function comprobarPasswordAndVerificado($passwordUser){
+        $resultado = password_verify($passwordUser, $this->clave);
+        // debuguear($resultado);
+        if( !$resultado || !$this->confirmado){
+            self::$alertas['error'][] = "Clave Incorrecta";
+        }else{
+            return true;
+        }
     }
 }
 ?>
