@@ -23,5 +23,10 @@ class PaginasController{
         $router->mostrarVista("paginas/contacto",[                
         ]);
     }
+
+    public static function productos(Router $router){
+        $router->mostrarVista("paginas/productos",[                
+        ]);
+    }
 }
 ?>
