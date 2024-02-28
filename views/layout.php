@@ -16,7 +16,7 @@
         <nav class="nav contenedor">
             <ul class="nav__menu">
                 <li class="menu__item">
-                    <a href="#" class="item__link">
+                    <a href="/" class="item__link">
                         <img class="menu__inicio" src="../build/img/logoOpcion1.png" alt="Logo de Apicola Genesis">
                     </a>
                 </li>
