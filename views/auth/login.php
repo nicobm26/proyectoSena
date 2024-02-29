@@ -1,3 +1,7 @@
+<?php
+include_once __DIR__ . "/../templates/alertas.php";
+?>
+
 <div class="login">
     <!-- <img src="assets/img/login-bg.png" alt="login image" class="login__img"> -->
     <!-- <img src="assets/img/FONDO.jfif" alt="login image" class="login__img"> -->
