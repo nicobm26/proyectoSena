@@ -61,22 +61,22 @@ class ActiveRecord {
     }
 
     // Identificar y unir los atributos de la BD
-    public function atributos() {       
-        $atributos = [];       
+    public function atributos() { 
+        $atributos = [];         
         foreach(static::$columnasDB as $columna) {
             if($columna === 'id') continue;          
-            $atributos[$columna] = $this->$columna;
-        }    
+            $atributos[$columna] = $this->$columna;           
+        }      
         return $atributos;
     }
 
     // Sanitizar los datos antes de guardarlos en la BD
     public function sanitizarAtributos() {
-        $atributos = $this->atributos();
+        $atributos = $this->atributos();    
         $sanitizado = [];
         foreach($atributos as $key => $value ) {
             $sanitizado[$key] = self::$db->escape_string($value);
-        }
+        }    
         return $sanitizado;
     }
 
@@ -107,7 +107,8 @@ class ActiveRecord {
     public function guardarLLaveDefinida($clavePrimaria) {
         $resultado = '';
         if(!is_null($this->where($clavePrimaria, $this->$clavePrimaria))) {
-            // actualizar        
+            // actualizar  
+            // debuguear("actualizar")      ;
             $resultado = $this->actualizar();
         } else {
             // Creando un nuevo registro
@@ -152,12 +153,13 @@ class ActiveRecord {
         // Sanitizar los datos
         $atributos = $this->sanitizarAtributos();
         // Insertar en la base de datos
-        $query = " INSERT INTO " . static::$tabla . " ( ";
+        $query = "INSERT INTO " . static::$tabla . " (";
         $query .= join(', ', array_keys($atributos));
-        $query .= " ) VALUES (' "; 
+        $query .= ") VALUES ('"; 
         $query .= join("', '", array_values($atributos));
-        $query .= " ') ";
+        $query .= "') ";
 
+        // debuguear($query);
         // Resultado de la consulta
         $resultado = self::$db->query($query);
         return [
