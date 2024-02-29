@@ -2,8 +2,8 @@
     <h2>Lista de Productos</h2>
     
     <div>
-        <a href="">Agregar Nuevo Producto</a>
-        <a href="">Agregar Nueva Medida</a>
+        <a href="/producto/agregar">Agregar Nuevo Producto</a>
+        <a href="/medida/agregar">Agregar Nueva Medida</a>
     </div>
 
     <div>
@@ -11,40 +11,39 @@
         <input type="text">
     </div>
 
-    <div class="card">
-				<div>
-					<p>Id: <?php echo $fila -> Id_Producto ?></p>
-					<p>Producto: <?php echo $fila -> Descripcion  ?></p>
-					<p>Precio: <?php echo $fila -> Precio_Unitario  ?></p>
-					<p>Stock: <?php echo $fila -> Stock ?></p>
-					<p>Medida: <?php echo $fila -> Abreviatura ?></p>
+    <?php 
+    foreach ($productos as $producto) {
+        ?>
+   <div class="card">
+            <!-- Apartado izquierdo con imagen y nombre de la producto -->
+            <div class="left">
+                <!-- <img src="ruta_de_la_imagen" alt="Nombre de la producto" style="width:100%"> -->
+                <img src="/imagenes/<?php echo $producto->imagen ?> " alt="imagen de la casa" class="imagen-tabla">
+                <p class="property-name"><?php echo $producto->codigo ?></p>
+                <p class="property-name"><?php echo $producto->nombre ?></p>
+                <p class="property-name"><?php echo $producto->precio ?></p>
+            </div>
 
-					<?php 
-					$sql = "select p.Id_Producto , p.Descripcion, t.Nombre as NombreEvento, e.Descripcion AS Evento_Descripcion from productos p
-					inner join eventos e on p.Id_Producto = e.Id_Producto
-					inner join tipo_eventos t on t.Id_TipoEvento = e.Id_TipoEvento
-					where p.Id_Producto= $fila->Id_Producto;";
-					$eventoProducto = $conn -> query($sql);
-					if($eventoProducto->fetchObject()){
-						$eventoProducto = $conn -> query($sql);
-						echo "<div class='linea'></div>";
-						echo "<p>Evento: Descripcion del evento registrado </p>";
-						while($evento = $eventoProducto->fetchObject()){
-							echo "<p class='eventoProducto'> $evento->NombreEvento : $evento->Evento_Descripcion  </p>";
-						}
-					}
-					
-					?>
-				</div>
-				<div class="card__opciones">
-					<a class="btn" <?php  echo "href='/productos/editar.php?Id_Producto=" . $fila -> Id_Producto . "'" ?>> Editar</a>
-					<a  class="btn"  <?php echo "href='/productos/eliminar.php?Id_Producto=" . $fila -> Id_Producto . "'" ?> >Eliminar</a>
-					<a  class="btn"  <?php echo "href='/productos/addEventoAProducto.php?Id_Producto=" . $fila -> Id_Producto . "'"?>>Agregar Evento</a>
-					<!-- <a href='evento.php?Id_Producto=" . $Row -> Id_Producto . "'>AgregarEvento</a><br>"; -->
-					<label><input type="checkbox" id="cbox1" name="carro[<?php echo $fila->Id_Producto ?>]" value="<?php echo $fila->Id_Producto ?>" /> Agregar Carrito</label>
-					<label><input type="checkbox" id="cbox2" name="evento[<?php echo $fila->Id_Producto ?>]" value="<?php echo $fila->Id_Producto ?>" /> Agregar Lista Evento</label>
-				</div>
-			</div>
+            <!-- Apartado derecho con características de la producto -->
+            <div class="right">
+                <p>Stock: <?php echo $producto->stock ?> </p>
+                <p>Medida: <?php echo $producto->codigoMedida ?></p>
+                <p>Cedula Administrador: <?php echo $producto->cedulaAdministrador ?> </p>
+                <!-- Agrega más características aquí según sea necesario -->
+            </div>
+
+            <div class="opciones">
+                <form method="post" class="w-100" action="/propiedades/eliminar">
+                    <input type="hidden" name="id" value="<?php echo $producto->id ?>">
+                    <input type="hidden" name="tipo" value="producto">
+                    <input type="submit" class="boton-rojo-block" value="Eliminar">
+                </form>
+                <a href="/producto/actualizar" class="boton-amarillo-block">Actualizar</a>
+            </div>
+        </div>
+    <?php } ?>
+    
+
 </main>
 
 
