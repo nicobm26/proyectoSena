@@ -33,6 +33,9 @@ $router->get("/registrar", [LoginController::class, 'registrar']);
 $router->post("/registrar", [LoginController::class, 'registrar']);
 $router->get("/logout", [LoginController::class, 'logout']);
 
+//Login admin
+$router->get("/loginAdmin", [LoginController::class, 'loginAdministrador']);
+$router->post("/loginAdmin", [LoginController::class, 'loginAdministrador']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();
