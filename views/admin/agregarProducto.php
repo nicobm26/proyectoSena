@@ -1,6 +1,6 @@
 <h1>Agregar producto</h1>
 
-<form method="POST" class="formulario">
+<form method="POST" class="formulario" enctype="multipart/form-data">
 
     <div class="campo">
         <label for="codigo">Código</label>
@@ -30,22 +30,21 @@
     <div class="campo">
         <label for="imagen">Imagen</label>
         <input type="file" 
-                    id="imagen" 
-                    name="producto[imagen]" 
-                    accept="image/jpeg, image/png">>
+                id="imagen" 
+                name="producto[imagen]" 
+                accept="image/jpeg, image/png">
     </div>
 
     <div class="campo">
         <label for="codigoMedida">Codigo de Medida</label>
-        <select name="propiedad[vendedorId]" id="vendedor">
-            <option value="">--Seleccionar--</option>
-                <!-- <?php foreach($medidas as $medida ) : ?>
-                    <option 
-                    <?php echo $propiedad->vendedorId === $vendedor->id ? 'selected' : ""?>
-                    value="<?php echo s($vendedor->id); ?>"><?php echo s($vendedor->nombre . " " . $vendedor->apellido);  ?>
-                    </option>
-                <?php endforeach ; ?> -->
-        </select>        
+        <?php
+        echo '<select name="producto[codigoMedida]">';
+            foreach ($unidadesMedidas as $unidadMedida) {
+                echo '<option value="' . $unidadMedida->codigo . '">' . $unidadMedida->descripcion . '</option>';        
+            }
+        echo '</select>';
+        ?>    
     </div>
 
+    <input type="submit" value="enviar" class="boton">
 </form>
