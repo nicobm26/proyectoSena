@@ -69,9 +69,7 @@ class Router {
         ob_start(); //Almacenamiento en memoria durante un rato
 
         include __DIR__ . "/views/$view.php";  //Este archivo queda en memoria
-
         $contenido = ob_get_clean();  //Limpiamos lo que esta en memoria Buffer
-
         include __DIR__ . "/views/layout.php";
     }
 }
