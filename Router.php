@@ -23,7 +23,7 @@ class Router {
         $auth = $_SESSION['login'] ?? false;
 
         // Arreglo de rutas protegidas
-        $rutasProtegidas = ['/admin', '/propiedades/crear' , 'propiedades/actualizar' , '/propiedades/eliminar',
+        $rutasProtegidas = ['/admin', '/producto/agregar' , '/producto/actualizar' , '/producto/eliminar',
         '/vendedor/crear' , '/vendedor/actualizar' , '/vendedor/eliminar'];
 
 
@@ -58,9 +58,8 @@ class Router {
         }
     }
 
-    // Muestra una vista
-    public function mostrarVista($view, $datos=[]) {
-
+     // Muestra una vista
+     public function mostrarVista($view, $datos=[]) {
         // $$ -> crear una variable con el nombre de key del arreglo
         foreach ($datos as $key => $value) {
             $$key = $value;
