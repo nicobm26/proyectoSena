@@ -7,21 +7,30 @@ use MVC\Router;
 
 use Intervention\Image\ImageManagerStatic as Image;
 
-
 use Model\UnidadesMedida;
 
 class AdminController{
 
     public static function index(Router $router){
         $productos = Producto::all();
-        
+        $producto = null;
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){   
+            $productos = [];
+            $codigo = $_POST['codigo'];
+            $producto = Producto::where('codigo', $codigo);
+            // debuguear($productos);
+        }else if($_SERVER['REQUEST_METHOD'] === 'GET'){
+            $productos = Producto::all();            
+        }
+    
         $router->mostrarVista("admin/index",[
-            'productos' => $productos
+            'productos' => $productos,
+            'producto' => $producto
         ]);
     }
 
     public static function agregarProducto(Router $router){
-
+       
         $unidadesMedidas = UnidadesMedida::all();    
         // debuguear($unidadesMedidas);
         
@@ -60,7 +69,6 @@ class AdminController{
 
         $router->mostrarVista("admin/agregarProducto",[
             'unidadesMedidas' => $unidadesMedidas
-
         ]);
     }
 
@@ -115,6 +123,8 @@ class AdminController{
             }
         }
     }
+
+    
 
 
     // public static function crearAdmin(Router $router){
