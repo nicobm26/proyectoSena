@@ -14,6 +14,7 @@ $router = new Router();
 $router->get("/", [PaginasController::class, 'index']); //dominio (/)
 $router->get("/nosotros", [PaginasController::class, 'nosotros']);
 $router->get("/productos", [PaginasController::class, 'productos']);
+$router->get("/producto", [PaginasController::class, 'producto']);
 
 $router->get("/contactanos", [PaginasController::class, 'contactanos']);
 $router->post("/contactanos", [PaginasController::class, 'contactanos']);
@@ -38,6 +39,7 @@ $router->post("/loginAdmin", [LoginController::class, 'loginAdministrador']);
 
 //Panel de administracion
 $router->get("/admin", [AdminController::class, 'index']);
+$router->post("/admin", [AdminController::class, 'index']);
 $router->get("/producto/agregar", [AdminController::class, 'agregarProducto']);
 $router->post("/producto/agregar", [AdminController::class, 'agregarProducto']);
 $router->get("/producto/actualizar", [AdminController::class, 'actualizarProducto']);
