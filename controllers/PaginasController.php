@@ -1,6 +1,7 @@
 <?php 
 namespace Controllers;
 
+use Model\Producto;
 use MVC\Router;
 
 class PaginasController{
@@ -25,7 +26,17 @@ class PaginasController{
     }
 
     public static function productos(Router $router){
-        $router->mostrarVista("paginas/productos",[                
+        $productos = Producto::some(4);
+        $router->mostrarVista("paginas/productos",[       
+            'productos'=> $productos
+        ]);
+    }
+
+    public static function producto(Router $router){
+        $codigo = $_GET['codigo'];
+        $producto = Producto::where('codigo', $codigo);
+        $router->mostrarVista("paginas/producto",[       
+            'producto'=> $producto
         ]);
     }
 }
