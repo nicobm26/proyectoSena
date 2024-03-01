@@ -1,0 +1,133 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.centrar-T-Producto {
+    text-align: center;
+  }
+  .Cont-Productos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    background-color: #fcd24700;
+    justify-items: center;
+  }
+  .imgProductos {
+    height: 400px;
+    width: 400px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  
+  .cont-miel {
+    display: block;
+    width: 300px;
+    height: auto;
+    justify-content: flex;
+    margin: 20px;
+    text-align: center;
+    border: 2px solid rgb(246, 138, 15);
+    padding: 10px;
+    background-color: #faca39;
+    border-radius: 20px;
+    transition: transform 0.3s;
+  }
+  .cont-miel:hover {
+    transform: scale(1.03);
+  }
+  
+  @media (max-width: 767px) {
+    .Cont-Productos {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+  }
+  @media (max-width: 728px) {
+    .Cont-Productos {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+  }
+  
+  .button-Producto {
+    padding: 8px;
+    border-radius: 10px;
+    background-color: yellow;
+  }
+  .button-Producto:hover {
+    background-color: #ffc107;
+  }
+  .button-Producto:active {
+    background-color: #f3ff07;
+  }
+  .combobox {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0097a7;
+  }
+  .combobox option {
+    color: black;
+    background-color: #ffc1078d;
+  }
+  .combobox select {
+    background-color: #f3ff07;
+    padding: 7px;
+    border-radius: 7px;
+  }
+  @media (max-width: 900) {
+    .Cont-Productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      max-width: 100%;
+    }
+  }
+  
+  .Click-Producto-Contenedor {
+    display: flex;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #eeeba1c1;
+    text-align: center;
+    justify-content: center;
+  }
+  .Click-Imagen-Comprar {
+    width: 350px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 60px;
+  }
+  .Click-Producto-SubContenedor {
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .boton-Comprar {
+    background-color: #f3ff07;
+    border-radius: 9px;
+    margin: 3px;
+  }
+  .boton-Comprar:hover {
+    background-color: #faca39;
+  }
+  
+  @media (max-width: 900) {
+    .Click-Producto-Contenedor {
+      height: 390px;
+      display: flex;
+      max-width: 100%;
+    }
+  }
+  .CLick-segundo-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 50px;
+    margin-left: 12px;
+    padding-bottom: 200px;
+    padding: 50px;
+    font-size: 20px;
+  }
+  

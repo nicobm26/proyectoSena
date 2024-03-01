@@ -1,0 +1,41 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.opciones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+
+    a{
+        text-decoration: none;
+        color: v.$negro
+    }   
+}
+
+.boton-opcion{
+    @include m.boton (v.$colorCabacera, v.$negro);
+}
+
+.buscar{
+    display: flex;
+    justify-content: center;
+    label{
+        color: v.$colorTexto;
+    }
+}
+
+.buscar-boton{
+    color: v.$colorTexto;
+    background-color: v.$colorCabacera;
+    transition-property: background-color;
+    transition-duration: .3s;
+    border-radius: 1rem;
+    margin-left: 1rem;
+
+    &:hover {
+        background-color: darken( v.$colorCabacera, 10% );
+        cursor: pointer;        
+    }
+}
+    

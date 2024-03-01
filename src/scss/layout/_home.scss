@@ -74,13 +74,16 @@
     opacity: 1;
 }
 .foto1{
+    // display: block;
     background-image: url(../img/productos.jpg);
+    background-image: url(../img/IlderApicultor.jpg);
+    background-image: url(../img/presentacion1.jpg);
 }
 .foto2{
-    background-image: url(../img/productos.jpg);
+    background-image: url(../img/IlderApicultor.jpg);
 }
 .foto3{
-    background-image: url(../img/productos.jpg);
+    background-image: url(../img/presentacion1.jpg);
 }
 #slider li .content_slider{
   background: rgba(0, 0, 0, 0.50);
