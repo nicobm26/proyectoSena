@@ -7,7 +7,7 @@
         <li><a itlist="itList_2" href="#"></a></li>
     </ul>
     <ul id="slider">
-        <li class="foto1">
+        <li style="background-image: url('../img/productos.JPG'); z-index:0; opacity: 1;">
             <div class="content_slider">
                 <div>
                     <h2>ApicolasGenesis.com</h2>
@@ -16,7 +16,7 @@
                 </div>
             </div>
         </li>
-        <li class="foto2">
+        <li style="background-image: url('../img/Ilder_Apicultor.jpeg'); ">
             <div class="content_slider">
                 <div>
                     <h2>ApicolasGenesis.com</h2>
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </li>
-        <li class="foto3">
+        <li style="background-image: url('../img/presentacion1.jpeg'); ">
             <div class="content_slider">
                 <div>
                     <h2>ApicolasGenesis.com</h2>
@@ -34,6 +34,7 @@
                 </div>
             </div>
         </li>
+
     </ul>
 </section>
 <div class="contenedor">
