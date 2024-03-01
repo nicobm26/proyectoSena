@@ -1,34 +1,39 @@
 <h1>Agregar producto</h1>
 
-<form method="POST" class="formulario" enctype="multipart/form-data">
+<div>
+    <a href="/admin" class="boton">Volver</a>
+</div>
+
+
+<form method="POST" class="formulario contenedorFormulario" enctype="multipart/form-data">
 
     <div class="campo">
-        <label for="codigo">Código</label>
+        <label class="campo__name" for="codigo">Código</label>
         <input type="text" id="codigo" name="producto[codigo]">
     </div>
 
     <div class="campo">
-        <label for="nombre">Nombre</label>
+        <label  class="campo__name" for="nombre">Nombre</label>
         <input type="text" id="nombre" name="producto[nombre]">
     </div>
 
     <div class="campo">
-        <label for="descripcion">Descripción</label>
+        <label class="campo__name" for="descripcion">Descripción</label>
         <textarea id="descripcion" name=producto[descripcion]"> </textarea>  
     </div>
 
     <div class="campo">
-        <label for="precio">Precio</label>
+        <label class="campo__name" for="precio">Precio</label>
         <input type="number" id="precio" name="producto[precio]">
     </div>
 
     <div class="campo">
-        <label for="stock">Stock</label>
+        <label class="campo__name" for="stock">Stock</label>
         <input type="number" id="stock" name="producto[stock]">
     </div>
 
     <div class="campo">
-        <label for="imagen">Imagen</label>
+        <label class="campo__name" for="imagen">Imagen</label>
         <input type="file" 
                 id="imagen" 
                 name="producto[imagen]" 
@@ -36,7 +41,7 @@
     </div>
 
     <div class="campo">
-        <label for="codigoMedida">Codigo de Medida</label>
+        <label class="campo__name" for="codigoMedida">Codigo de Medida</label>
         <?php
         echo '<select name="producto[codigoMedida]">';
             foreach ($unidadesMedidas as $unidadMedida) {
