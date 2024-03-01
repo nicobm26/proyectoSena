@@ -147,7 +147,6 @@ class ActiveRecord {
         return array_shift( $resultado ) ;
     }
 
-
     // crea un nuevo registro
     public function crear() {
         // Sanitizar los datos
@@ -204,6 +203,29 @@ class ActiveRecord {
         $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
         $query .= " LIMIT 1 "; 
 
+        // debuguear($query);
+        // Actualizar BD
+        $resultado = self::$db->query($query);
+        return $resultado;
+    }
+
+     // Actualizar el registro, con la diferentecia que la llave primaria puede ser cualquiera y no solo 'id'
+     public function actualizarLlave($llave, $valor) {
+        // Sanitizar los datos
+        $atributos = $this->sanitizarAtributos();
+
+        // Iterar para ir agregando cada campo de la BD
+        $valores = [];
+        foreach($atributos as $key => $value) {
+            $valores[] = "{$key}='{$value}'";
+        }
+
+        // Consulta SQL
+        $query = "UPDATE " . static::$tabla ." SET ";
+        $query .=  join(', ', $valores );
+        $query .= " WHERE $llave = '$valor' ";
+        $query .= " LIMIT 1 "; 
+        
         // Actualizar BD
         $resultado = self::$db->query($query);
         return $resultado;
@@ -212,6 +234,13 @@ class ActiveRecord {
     // Eliminar un Registro por su ID
     public function eliminar() {
         $query = "DELETE FROM "  . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
+        $resultado = self::$db->query($query);
+        return $resultado;
+    }
+
+     // Eliminar un Registro por su ID
+     public function eliminarLlave($llave,$valor) {
+        $query = "DELETE FROM "  . static::$tabla . " WHERE $llave = $valor LIMIT 1";
         $resultado = self::$db->query($query);
         return $resultado;
     }
