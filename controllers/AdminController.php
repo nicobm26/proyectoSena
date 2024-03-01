@@ -67,11 +67,53 @@ class AdminController{
 
     public static function actualizarProducto(Router $router){
         $unidadesMedidas = UnidadesMedida::all();
+        $codigo = $_GET['codigo'];
+        $producto = Producto::where('codigo', $codigo);
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+            $args = $_POST['producto'];
+            // debuguear($args);
+            $producto->sincronizar($args);
+
+            $nombreImagen = $producto->codigo . ".jpg";
+            if($_FILES['producto']['tmp_name']['imagen']){
+                $image = Image::make($_FILES['producto']['tmp_name']['imagen'])->fit(800,600);
+                $producto->setImagen($nombreImagen);
+            }
+
+            $alertas = $producto->validar();
+
+            //revisar que el arreglo de errores este vacio
+            if(empty($alertas)){
+                // Realiza el resize con intervention  Y Setear la imagen
+                if($_FILES['producto']['tmp_name']['imagen']){
+                    $image->save(CARPETA_IMAGENES . $nombreImagen);
+                }                
+                $resultado = $producto->actualizarLlave('codigo', $producto->codigo);
+
+                if($resultado) {
+                    header('location: /admin');
+                }
+            }
+        }
 
          $router->mostrarVista("admin/actualizarProducto",[
-            'unidadesMedidas' => $unidadesMedidas
-
+            'unidadesMedidas' => $unidadesMedidas,
+            'producto' => $producto
         ]);
+    }
+
+    
+    public static function eliminarProducto(){
+        if($_SERVER['REQUEST_METHOD']=== "POST"){
+            
+            $codigo = $_POST["codigo"];        
+            // debuguear($_POST);
+            if($codigo){            
+                $producto = Producto::where('codigo',$codigo);            
+                $producto->eliminarLlave('codigo',$codigo);
+                header('location: /admin');
+            }
+        }
     }
 
 
