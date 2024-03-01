@@ -33,12 +33,12 @@
             </div>
 
             <div class="opciones">
-                <form method="post" class="w-100" action="/propiedades/eliminar">
-                    <input type="hidden" name="id" value="<?php echo $producto->id ?>">
+                <form method="post" class="w-100" action="/producto/eliminar">
+                    <input type="hidden" name="codigo" value="<?php echo $producto->codigo ?>">
                     <input type="hidden" name="tipo" value="producto">
                     <input type="submit" class="boton-rojo-block" value="Eliminar">
                 </form>
-                <a href="/producto/actualizar" class="boton-amarillo-block">Actualizar</a>
+                <a href="/producto/actualizar?codigo=<?php echo $producto->codigo?>" class="boton-amarillo-block">Actualizar</a>
             </div>
         </div>
     <?php } ?>
