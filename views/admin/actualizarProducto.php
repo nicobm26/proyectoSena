@@ -1,4 +1,8 @@
-<h1>Agregar producto</h1>
+<h1>Actualizar producto</h1>
+
+<div>
+    <a href="/admin">Volver</a>
+</div>
 
 <form method="POST" class="formulario" enctype="multipart/form-data">
 
@@ -18,9 +22,8 @@
 
     <div class="campo">
         <label for="descripcion">Descripción</label>
-        <textarea id="descripcion" name=producto[descripcion]"
-        value="<?php echo $producto->descripcion; ?>"
-        > </textarea>  
+        <textarea id="descripcion" name=producto[descripcion]"> <?php echo $producto->descripcion; ?>
+    </textarea>  
     </div>
 
     <div class="campo">
