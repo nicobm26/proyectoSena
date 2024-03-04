@@ -13,14 +13,15 @@ class ComprarController{
             $cantidad = $_POST['cantidad'];
             $codigo =  $_POST['codigo'];
             $producto = Producto::where('codigo', $codigo);
+            $total = $cantidad * $producto->precio;
             // debuguear($producto);
         
     
         }
         $router->mostrarVista('paginas/comprar', [
             'cantidad' => $cantidad,
-            'producto' => $producto
-
+            'producto' => $producto,
+            'total' => number_format($total,0,',','.')
         ]);
 
     }
