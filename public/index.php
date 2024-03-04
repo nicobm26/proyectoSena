@@ -6,6 +6,7 @@ use Controllers\AdminController;
 use Controllers\LoginController;
 use MVC\Router;
 use Controllers\PaginasController;
+use Controllers\ComprarController;
 
 $router = new Router();
 
@@ -19,6 +20,8 @@ $router->get("/producto", [PaginasController::class, 'producto']);
 $router->get("/contactanos", [PaginasController::class, 'contactanos']);
 $router->post("/contactanos", [PaginasController::class, 'contactanos']);
 
+$router->get("/comprar", [ComprarController::class, 'comprar']);
+$router->post("/comprar", [ComprarController::class, 'comprar']);
 
 
 //Panel administracion
