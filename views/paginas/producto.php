@@ -6,7 +6,7 @@
         <h2><?php $producto->nombre ?></h2>
         <a href="Click.html"><img class="imgProductos" src="imagenes/<?php echo $producto->imagen ?>" alt="<?php echo $producto->nombre ?>"></a>
         <p>750ml</p>
-        <p><strong>Precio:</strong> <?php $producto->precio ?> COP</p>
+        <p><strong>Precio:</strong> <?php echo $producto->precio ?> COP</p>
         <a href="/producto?codigo=<?php echo $producto->codigo ?>"><button class="button-Producto">Agregar al carrito</button></a>
     </article>
 
@@ -30,8 +30,7 @@
                 <input type="submit" class="boton-Comprar" value="Comprar"> </input>
             </form>
             
-                <!-- <a href="/comprar?cantidad=">Comprar</a> -->
-                <button class="boton-Comprar">Agregar al carrito</button><br>
+
                 <a href="/productos"><button class="boton-Comprar">Volver</button></a>
     </article>
 </section>
