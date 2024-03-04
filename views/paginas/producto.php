@@ -27,10 +27,9 @@
                     <option value="10">10+</option>
                 </select></p>
                 <input type="hidden" name="codigo" value="<?php echo $producto->codigo ?>">
-                <input type="submit" class="boton-Comprar" value="Comprar"> </input>
+                <input type="submit" class="boton-Comprar" name="accion" value="Comprar">
+                <input type="submit" class="boton-Comprar" name="accion" value="AgregarCarrito">
             </form>
             
-
-                <a href="/productos"><button class="boton-Comprar">Volver</button></a>
     </article>
 </section>
