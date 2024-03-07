@@ -27,7 +27,8 @@ class PaginasController{
     }
 
     public static function productos(Router $router){
-        $productos = Producto::some(4);
+        // $productos = Producto::some(2);
+        $productos = Producto::all();
         $router->mostrarVista("paginas/productos",[       
             'productos'=> $productos
         ]);
