@@ -3,11 +3,11 @@
 
 /*---------CARUSEL-------------*/
 
-#container-slider
-{
+#container-slider{
   position: relative;
   display: block;
   width: 100%;
+  margin: 0;
 }
 #slider {
   position: relative;
@@ -15,6 +15,7 @@
   width: 100%;
   height: 100vh;
   min-height: 500px;
+  margin: 0;
 }
 #slider li {
   background-repeat: no-repeat;
@@ -32,7 +33,7 @@
   -o-transition: opacity 1s;
   transition: opacity 1s;
   z-index: -1;
-  opacity: 0;
+  // opacity: 0;
 }
 #container-slider .arrowPrev, #container-slider .arrowNext{
   font-size: 30pt;
@@ -74,9 +75,6 @@
     opacity: 1;
 }
 .foto1{
-    // display: block;
-    background-image: url(../img/productos.jpg);
-    background-image: url(../img/IlderApicultor.jpg);
     background-image: url(../img/presentacion1.jpg);
 }
 .foto2{
@@ -85,6 +83,7 @@
 .foto3{
     background-image: url(../img/presentacion1.jpg);
 }
+
 #slider li .content_slider{
   background: rgba(0, 0, 0, 0.50);
   padding: 10px 125px;

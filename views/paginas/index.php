@@ -7,7 +7,7 @@
         <li><a itlist="itList_2" href="#"></a></li>
     </ul>
     <ul id="slider">
-        <li style="background-image: url('../img/productos.JPG'); z-index:0; opacity: 1;">
+        <li class="foto1">
             <div class="content_slider">
                 <div>
                     <h2>ApicolasGenesis.com</h2>
@@ -16,7 +16,7 @@
                 </div>
             </div>
         </li>
-        <li style="background-image: url('../img/Ilder_Apicultor.jpeg'); ">
+        <li class="foto2">
             <div class="content_slider">
                 <div>
                     <h2>ApicolasGenesis.com</h2>
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </li>
-        <li style="background-image: url('../img/presentacion1.jpeg'); ">
+        <li class="foto3">
             <div class="content_slider">
                 <div>
                     <h2>ApicolasGenesis.com</h2>
@@ -47,7 +47,7 @@
                 <button class="boton">Ver más</button>
             </a>
         </div>
-        <img src="img/productos.JPG" alt="Imagen de la sección">
+        <img src="/build/img/productos.JPG" alt="Imagen de la sección">
     </div>
 </div>
 
@@ -57,7 +57,7 @@
         <div class="elemento">
             <div class="producto">
                 <div class="icono">
-                    <img src="img/propoleo.jpg" alt="Propóleo">
+                    <img src="/build/img/propoleo.jpg" alt="Propóleo">
                 </div>
                 <p class="subtitulo2">Propóleo</p>
             </div>
@@ -65,7 +65,7 @@
         <div class="elemento">
             <div class="producto">
                 <div class="icono">
-                    <img src="img/litro de miel2.jpg" alt="Miel">
+                    <img src="/build/img/litroDeMiel2.jpg" alt="Miel">
                 </div>
                 <p class="subtitulo2">Miel</p>
             </div>
@@ -73,10 +73,17 @@
         <div class="elemento">
             <div class="producto">
                 <div class="icono">
-                    <img src="img/polen2.jpg" alt="Jalea">
+                    <img src="/build/img/polen2.jpg" alt="Jalea">
                 </div>
                 <p class="subtitulo2">Polen</p>
             </div>
         </div>
     </div>
 </div>
+
+<?php
+ $script = "
+    <script src='build/js/index.js'> </script>
+    <script defer src='https://use.fontawesome.com/releases/v5.0.6/js/all.js'></script>
+ ";
+?>

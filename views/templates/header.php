@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="../build/css/app.css">
+    <link rel="stylesheet" href="/build/css/app.css">
     <!--=============== REMIXICONS ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
@@ -27,7 +27,7 @@
             <ul class="nav__menu">
                 <li class="menu__item">
                     <a href="/" class="item__link">
-                        <img class="menu__inicio" src="../build/img/logoOpcion1.png" alt="Logo de Apicola Genesis">
+                        <img class="menu__inicio" src="./build/img/logoOpcion1.png" alt="Logo de Apicola Genesis">                        
                     </a>
                 </li>
                 <li class="menu__item"><a class="item__link" href="/nosotros">Apícola Génesis</a></li>
