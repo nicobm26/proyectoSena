@@ -2,9 +2,9 @@
     <a href="javascript: funcionEjecutar('anterior');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
     <a href="javascript: funcionEjecutar('siguiente');" class="arrowNext"><i class="fas fa-chevron-circle-right"></i></a>
     <ul class="listslider">
-        <li><a itlist="itList_0" href="#" class="item-select-slid"></a></li>
-        <li><a itlist="itList_1" href="#"></a></li>
-        <li><a itlist="itList_2" href="#"></a></li>
+        <li><a id="itList_0" href="#" class="item-select-slid"></a></li>
+        <li><a id="itList_1" href="#"></a></li>
+        <li><a id="itList_2" href="#"></a></li>
     </ul>
     <ul id="slider">
         <li class="foto1">

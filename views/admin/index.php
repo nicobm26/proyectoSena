@@ -24,9 +24,9 @@
             <div class="left">
                 <!-- <img src="ruta_de_la_imagen" alt="Nombre de la producto" style="width:100%"> -->
                 <img src="/imagenes/<?php echo $producto->imagen ?> " alt="imagen de la casa" class="imagen-tabla">
-                <p class="property-name"><?php echo $producto->codigo ?></p>
-                <p class="property-name"><?php echo $producto->nombre ?></p>
-                <p class="property-name"><?php echo $producto->precio ?></p>
+                <p class="property-name"><span>Codigo: </span><?php echo $producto->codigo ?></p>
+                <p class="property-name"><span>Nombre: </span><?php echo $producto->nombre ?></p>
+                <p class="property-name"><span>Precio: </span><?php echo $producto->precio ?></p>
             </div>
 
             <!-- Apartado derecho con características de la producto -->
@@ -55,28 +55,27 @@
    <div class="card">
             <!-- Apartado izquierdo con imagen y nombre de la producto -->
             <div class="left">
-                <!-- <img src="ruta_de_la_imagen" alt="Nombre de la producto" style="width:100%"> -->
                 <img src="/imagenes/<?php echo $producto->imagen ?> " alt="imagen de la casa" class="imagen-tabla">
-                <p class="property-name"><?php echo $producto->codigo ?></p>
-                <p class="property-name"><?php echo $producto->nombre ?></p>
-                <p class="property-name"><?php echo $producto->precio ?></p>
             </div>
 
             <!-- Apartado derecho con características de la producto -->
             <div class="right">
-                <p>Stock: <?php echo $producto->stock ?> </p>
-                <p>Medida: <?php echo $producto->codigoMedida ?></p>
-                <p>Cedula Administrador: <?php echo $producto->cedulaAdministrador ?> </p>
+                <p class="property-name"><span>Codigo: </span><?php echo $producto->codigo ?></p>
+                <p class="property-name"><span>Nombre: </span><?php echo $producto->nombre ?></p>
+                <p class="property-name"><span>Precio: </span><?php echo $producto->precio ?></p>
+                <p><span>Stock: </span> <?php echo $producto->stock ?> </p>
+                <p><span>Medida: </span><?php echo $producto->codigoMedida ?></p>
+                <p><span>Cedula Administrador:</span> <?php echo $producto->cedulaAdministrador ?> </p>
                 <!-- Agrega más características aquí según sea necesario -->
             </div>
 
-            <div class="opciones">
+            <div class="card__opciones">
                 <form method="post" class="w-100" action="/producto/eliminar">
                     <input type="hidden" name="codigo" value="<?php echo $producto->codigo ?>">
                     <input type="hidden" name="tipo" value="producto">
-                    <input type="submit" class="boton-rojo-block" value="Eliminar">
+                    <input type="submit" class="boton-eliminar" value="Eliminar">
                 </form>
-                <a href="/producto/actualizar?codigo=<?php echo $producto->codigo?>" class="boton-amarillo-block">Actualizar</a>
+                <a href="/producto/actualizar?codigo=<?php echo $producto->codigo?>" class="boton-actualizar">Actualizar</a>
             </div>
         </div>
     <?php } ?>

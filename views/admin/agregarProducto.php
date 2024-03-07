@@ -51,5 +51,5 @@
         ?>    
     </div>
 
-    <input type="submit" value="enviar" class="boton">
+    <input type="submit" value="Agregar" class="boton">
 </form>

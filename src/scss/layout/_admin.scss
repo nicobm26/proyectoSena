@@ -2,15 +2,16 @@
 @use 'base/mixins' as m;
 
 .card {
-    display: grid;
-    grid-template-columns: 1fr ;
     border: 1px solid #ddd;
     border-radius: 4px;
     overflow: hidden;
     margin: 20px;
     @include m.tablet {
+        display: grid;
+        grid-template-columns: 1fr ;
         align-items: center;
         justify-content: center;  
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -18,22 +19,27 @@
     display: flex;
     flex-direction: column;
     justify-self: center;
+    margin-top: 3rem;
 }
 .left img{
-    width: 300px;
-    height: 200px;
-    gap: 1rem;
+    height: 400PX;
+    width: 400PX;
+    border-radius: 20px;
+    filter: drop-shadow(0 0 5px v.$colorCabacera);
 }
 .right {
     padding: 20px;
+    span{
+        font-weight: v.$bold;
+    }
 }
-.right p{
-    font-weight: 500;
-    // color: white;
-}
+// .right p{
+//     font-weight: 500;
+//     // color: white;
+// }
 
-.property-name {
-    font-size: 1.9rem;
-    font-weight: bold;
-    margin: 0;
-}
+// .property-name {
+//     font-size: 1.9rem;
+//     font-weight: bold;
+//     margin: 0;
+// }
