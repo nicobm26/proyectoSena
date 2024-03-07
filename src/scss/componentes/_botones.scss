@@ -2,7 +2,12 @@
 @use 'base/mixins' as m;
 
 .boton{
-    @include m.boton(v.$azul, v.$blanco)
+    @include m.boton(v.$colorCabacera, v.$blanco);
+    width: 40%;
+    margin: 0 auto;
+    @include m.tablet {
+        width: 40%;
+    }
 }
 
 .boton-comun{
@@ -18,4 +23,22 @@
     text-align: center;
     margin: 0 auto 2rem auto;
     border-radius: 1rem;
+}
+
+.boton-eliminar{
+    @include m.boton(#FF0000, v.$blanco);
+    width: 60%;
+    margin: 0 auto;
+    @include m.tablet {
+        width: 60%;
+    }
+}
+
+.boton-actualizar{
+    @include m.boton(v.$colorCabacera, v.$blanco);
+    width: 60%;
+    margin: 0 auto;
+    @include m.tablet {
+        width: 60%;
+    }
 }
