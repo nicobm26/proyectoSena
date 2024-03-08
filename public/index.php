@@ -16,12 +16,16 @@ $router->get("/", [PaginasController::class, 'index']); //dominio (/)
 $router->get("/nosotros", [PaginasController::class, 'nosotros']);
 $router->get("/productos", [PaginasController::class, 'productos']);
 $router->get("/producto", [PaginasController::class, 'producto']);
+$router->post("/producto", [PaginasController::class, 'producto']);
 
 $router->get("/contactanos", [PaginasController::class, 'contactanos']);
 $router->post("/contactanos", [PaginasController::class, 'contactanos']);
 
 $router->get("/comprar", [ComprarController::class, 'comprar']);
 $router->post("/comprar", [ComprarController::class, 'comprar']);
+
+$router->get("/carrito", [ComprarController::class, 'carrito']);
+$router->post("/carrito", [ComprarController::class, 'carrito']);
 
 
 //Panel administracion
