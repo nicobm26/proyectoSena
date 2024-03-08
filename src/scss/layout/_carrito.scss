@@ -4,7 +4,7 @@
 .contenedor-carrito{
     @include m.tablet{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 2fr 1fr;
         min-height: 100vh;
     }
     .carrito-derecha{
@@ -20,11 +20,23 @@
         box-sizing: border-box;
      
         @include m.tablet {
+            // display: flex;
+            // flex-direction: column;
             overflow: scroll;
             overflow-x: hidden;
             margin-right: 0;
             padding-right: 1.5rem;
             padding-left: 1.5rem;
+
+            .cajaCarrito{
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);   
+                align-items: center;
+                justify-items: center;
+                justify-content: center;         
+                gap: 3rem;            
+                border: 2px solid #ff6550;
+            }
      
             &::-webkit-scrollbar {
                 width: 0.9rem;
@@ -33,7 +45,7 @@
             &::-webkit-scrollbar-thumb {
                 background-color: rgba(255,255,255, .4);
                 border-radius: 5px;
-            }
+            }          
         }
     }
 }
