@@ -1,5 +1,9 @@
 <h1>producto</h1>
 
+<?php
+    include_once __DIR__ . '/../templates/alertas.php';
+?>
+
 <section class="Click-Producto-Contenedor">
 
     <article class="cont-miel">
@@ -12,7 +16,8 @@
 
     <article class="CLick-segundo-article">
         <h2>Información</h2>
-            <form action="/comprar" method="post">
+            <form method="post">
+                        
             <p>Cantidad 
                 <select id="cantidad" name="cantidad">
                     <option value="1">1</option>
