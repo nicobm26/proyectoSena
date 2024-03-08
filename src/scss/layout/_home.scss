@@ -264,7 +264,9 @@ h2 {
   text-transform: uppercase;
   margin-bottom: 2rem;
 }
-
+.titulo-producto{
+  color: v.$colorTexto;
+}
 .elementos {
   display: flex;
   justify-content: space-between; 

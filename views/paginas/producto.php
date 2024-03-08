@@ -9,8 +9,9 @@
     <article class="cont-miel">
         <h2><?php $producto->nombre ?></h2>
         <a href="Click.html"><img class="imgProductos" src="imagenes/<?php echo $producto->imagen ?>" alt="<?php echo $producto->nombre ?>"></a>
+        <p><strong>Nombre:</strong> <?php echo $producto->nombre ?> </p>
         <p>750ml</p>
-        <p><strong>Precio:</strong> <?php echo $producto->precio ?> COP</p>
+        <p><strong>Precio:</strong> <?php echo number_format($producto->precio, 0, ',' , '.') ?> COP</p>
         <a href="/producto?codigo=<?php echo $producto->codigo ?>"><button class="button-Producto">Agregar al carrito</button></a>
     </article>
 
