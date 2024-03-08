@@ -1,7 +1,7 @@
 <h1>Agregar producto</h1>
 
 <div>
-    <a href="/admin" class="boton">Volver</a>
+    <a href="/administrarProducto" class="boton">Volver</a>
 </div>
 
 

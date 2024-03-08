@@ -4,7 +4,7 @@ namespace Model;
 
 class UnidadesMedida extends ActiveRecord{
     protected static $tabla = 'unidades_medida';
-    protected static $columnasDb = ['codigo', 'descripcion', 'abreviatura'];
+    protected static $columnasDB = ['codigo', 'descripcion', 'abreviatura'];
 
     public $codigo;
     public $descripcion;
@@ -17,4 +17,16 @@ class UnidadesMedida extends ActiveRecord{
         $this->abreviatura = $args['abreviatura'] ?? '';
     }
 
+    public function validar(){
+        if(!$this->codigo)
+            self::$alertas['error'][] = 'Debe tener un codigo';
+
+        if(!$this->descripcion)
+            self::$alertas['error'][] = 'El nombre es obligatorio';
+
+        if(!$this->abreviatura)
+            self::$alertas['error'][] = 'Debes añadir una descripcion';   
+        
+        return self::$alertas;            
+    }
 }

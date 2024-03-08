@@ -12,6 +12,12 @@ use Model\UnidadesMedida;
 class AdminController{
 
     public static function index(Router $router){
+
+        $router->mostrarVista("admin/index",[
+        ]);
+    }
+
+    public static function producto(Router $router){
         $productos = Producto::all();
         $producto = null;
         if($_SERVER['REQUEST_METHOD'] === 'POST'){   
@@ -23,7 +29,7 @@ class AdminController{
             $productos = Producto::all();            
         }
     
-        $router->mostrarVista("admin/index",[
+        $router->mostrarVista("admin/producto/index",[
             'productos' => $productos,
             'producto' => $producto
         ]);
@@ -67,7 +73,7 @@ class AdminController{
             }
         }
 
-        $router->mostrarVista("admin/agregarProducto",[
+        $router->mostrarVista("admin/producto/agregarProducto",[
             'unidadesMedidas' => $unidadesMedidas
         ]);
     }
@@ -99,12 +105,12 @@ class AdminController{
                 $resultado = $producto->actualizarLlave('codigo', $producto->codigo);
 
                 if($resultado) {
-                    header('location: /admin');
+                    header('location: /administrarProducto');
                 }
             }
         }
 
-         $router->mostrarVista("admin/actualizarProducto",[
+         $router->mostrarVista("admin/producto/actualizarProducto",[
             'unidadesMedidas' => $unidadesMedidas,
             'producto' => $producto
         ]);
@@ -119,7 +125,7 @@ class AdminController{
             if($codigo){            
                 $producto = Producto::where('codigo',$codigo);            
                 $producto->eliminarLlave('codigo',$codigo);
-                header('location: /admin');
+                header('location: /administrarProducto');
             }
         }
     }
@@ -127,10 +133,10 @@ class AdminController{
 
     // public static function crearAdmin(Router $router){
     //     $cedula = 27840650;
-    //     $nombres = "maria";
+    //     $nombres = "karina";
     //     $apellidos = "mendoza";
-    //     $correo = "maria@gmail.com";
-    //     $clave = password_hash("Maria10", PASSWORD_BCRYPT);
+    //     $correo = "Karina@gmail.com";
+    //     $clave = password_hash("Karina1", PASSWORD_BCRYPT);
     //     // debuguear( $clave);
     //     $persona=[
     //         'cedula'=>$cedula, 

@@ -7,6 +7,7 @@ use Controllers\LoginController;
 use MVC\Router;
 use Controllers\PaginasController;
 use Controllers\ComprarController;
+use Controllers\MedidaController;
 
 $router = new Router();
 
@@ -47,17 +48,21 @@ $router->post("/loginAdmin", [LoginController::class, 'loginAdministrador']);
 //Panel de administracion
 $router->get("/admin", [AdminController::class, 'index']);
 $router->post("/admin", [AdminController::class, 'index']);
+$router->get("/administrarProducto", [AdminController::class, 'producto']);
+$router->post("/administrarProducto", [AdminController::class, 'producto']);
 $router->get("/producto/agregar", [AdminController::class, 'agregarProducto']);
 $router->post("/producto/agregar", [AdminController::class, 'agregarProducto']);
 $router->get("/producto/actualizar", [AdminController::class, 'actualizarProducto']);
 $router->post("/producto/actualizar", [AdminController::class, 'actualizarProducto']);
 $router->post("/producto/eliminar", [AdminController::class, 'eliminarProducto']);
 
-$router->get("/medida/agregar", [AdminController::class, 'agregarMedida']);
-$router->post("/medida/agregar", [AdminController::class, 'agregarMedida']);
-$router->get("/medida/actualizar", [AdminController::class, 'actualizarMedida']);
-$router->post("/medida/actualizar", [AdminController::class, 'actualizarMedida']);
-$router->post("/medida/eliminar", [AdminController::class, 'eliminarMedida']);
+$router->get("/medida", [MedidaController::class, 'index']);
+$router->post("/medida", [MedidaController::class, 'index']);
+$router->get("/medida/agregar", [MedidaController::class, 'agregarMedida']);
+$router->post("/medida/agregar", [MedidaController::class, 'agregarMedida']);
+$router->get("/medida/actualizar", [MedidaController::class, 'actualizarMedida']);
+$router->post("/medida/actualizar", [MedidaController::class, 'actualizarMedida']);
+$router->post("/medida/eliminar", [MedidaController::class, 'eliminarMedida']);
 // $router->get("/crearAdmin", [AdminController::class, 'crearAdmin']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

@@ -1,7 +1,7 @@
 <h1>Actualizar producto</h1>
 
 <div>
-    <a href="/admin" class="boton">Volver</a>
+    <a href="/administrarProducto" class="boton">Volver</a>
 </div>
 
 <form method="POST" class="formulario contenedorFormulario" enctype="multipart/form-data">

@@ -219,20 +219,21 @@ class ActiveRecord {
      // Actualizar el registro, con la diferentecia que la llave primaria puede ser cualquiera y no solo 'id'
      public function actualizarLlave($llave, $valor) {
         // Sanitizar los datos
+        // debuguear($this);
         $atributos = $this->sanitizarAtributos();
-
+        // debuguear($atributos);
         // Iterar para ir agregando cada campo de la BD
         $valores = [];
         foreach($atributos as $key => $value) {
             $valores[] = "{$key}='{$value}'";
         }
-
+        // debuguear($valores);
         // Consulta SQL
         $query = "UPDATE " . static::$tabla ." SET ";
         $query .=  join(', ', $valores );
         $query .= " WHERE $llave = '$valor' ";
         $query .= " LIMIT 1 "; 
-        
+        // debuguear($query);
         // Actualizar BD
         $resultado = self::$db->query($query);
         return $resultado;
@@ -249,6 +250,33 @@ class ActiveRecord {
      public function eliminarLlave($llave,$valor) {
         $query = "DELETE FROM "  . static::$tabla . " WHERE $llave = $valor LIMIT 1";
         $resultado = self::$db->query($query);
+        return $resultado;
+    }
+
+    public function eliminarLlaveExcepciones($llave,$valor) {
+        $resultado=null;
+        try {
+            $query = "DELETE FROM " . static::$tabla . " WHERE $llave = $valor LIMIT 1";
+            // debuguear($query);
+            $resultado = self::$db->query($query);
+            // debuguear($query);
+
+            if ($resultado === false) {
+                $errorInfo = self::$db->errorInfo();
+                // Verifica si el código de error es '23000' (violación de integridad referencial)
+                if ($errorInfo[1] == '23000') {
+                    echo "Error: No se puede eliminar la llave primaria porque está siendo referenciada en otro lugar.";
+                } else {
+                    echo "Error: " . $errorInfo[2]; // Otro tipo de error
+                }
+            } else {
+                // Resto de tu código después de la eliminación exitosa
+                echo "Llave primaria eliminada exitosamente";
+            }
+        } catch (Exception $e) {
+            // Otras excepciones generales (no relacionadas con la base de datos)
+            echo "Error: " . $e->getMessage();
+        }
         return $resultado;
     }
 
