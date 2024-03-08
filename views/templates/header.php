@@ -34,6 +34,7 @@
                 <li class="menu__item"><a class="item__link" href="/productos">Productos</a></li>
                 <li class="menu__item"><a class="item__link" href="/contactanos">Contáctenos</a></li>
                 <?php if($auth) {  ?>
+                    <li class="menu__item"><a class="item__link" href="/carrito">Carrito</a></li>
                     <li class="menu__item"><a class="item__link" href="/logout">Cerrar Sesion</a></li>
                  <?php }else{   ?>
                     <li class="menu__item"><a class="item__link" href="/login">Iniciar Sesión</a></li>                
