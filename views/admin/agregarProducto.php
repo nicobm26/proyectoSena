@@ -23,6 +23,11 @@
     </div>
 
     <div class="campo">
+        <label class="campo__name" for="cantidad">Cantidad</label>
+        <input type="number" id="cantidad" name="producto[cantidad]">
+    </div>
+
+    <div class="campo">
         <label class="campo__name" for="precio">Precio</label>
         <input type="number" id="precio" name="producto[precio]">
     </div>

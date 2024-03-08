@@ -23,7 +23,14 @@
     <div class="campo">
         <label class="campo__name" for="descripcion">Descripción</label>
         <textarea id="descripcion" name=producto[descripcion]"> <?php echo $producto->descripcion; ?>
-    </textarea>  
+        </textarea>  
+    </div>
+
+    <div class="campo">
+        <label class="campo__name" for="cantidad">Cantidad</label>
+        <input type="number" id="cantidad" name="producto[cantidad]"
+        value="<?php echo $producto->cantidad; ?>"
+        >
     </div>
 
     <div class="campo">
