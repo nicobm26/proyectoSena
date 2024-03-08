@@ -4,11 +4,12 @@ namespace Model;
 
 class Producto extends ActiveRecord{
     protected static $tabla = 'producto';
-    protected static $columnasDB = ['codigo','nombre','descripcion','precio','stock','imagen','codigoMedida','cedulaAdministrador'];
+    protected static $columnasDB = ['codigo','nombre','descripcion', 'cantidad' ,'precio','stock','imagen','codigoMedida','cedulaAdministrador'];
     
     public $codigo;
     public $nombre;
     public $descripcion;
+    public $cantidad;
     public $precio;
     public $stock;
     public $imagen;
@@ -20,6 +21,7 @@ class Producto extends ActiveRecord{
         $this->codigo = $args['codigo'] ?? null;
         $this->nombre = $args['nombre'] ?? '';
         $this->descripcion = $args['descripcion'] ?? '';
+        $this->cantidad = $args['cantidad'] ?? '';
         $this->precio = $args['precio'] ?? '';
         $this->stock = $args['stock'] ?? '';
         $this->imagen = $args['imagen'] ?? '';
@@ -41,7 +43,10 @@ class Producto extends ActiveRecord{
             self::$alertas['error'][] = 'El nombre es obligatorio';
 
         if(!$this->descripcion)
-            self::$alertas['error'][] = 'Debes añadir una descripcion';           
+            self::$alertas['error'][] = 'Debes añadir una descripcion';   
+        
+        if(!$this->cantidad)
+            self::$alertas['error'][] = 'Debes añadir una cantidad';
 
         if(!$this->precio)
             self::$alertas['error'][] = 'El precio es obligatorio';
