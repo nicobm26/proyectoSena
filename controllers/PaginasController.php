@@ -38,72 +38,55 @@ class PaginasController{
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $codigo = $_POST['codigo'];
             $cantidad = $_POST['cantidad'];
-            
-            if (isset($_POST['accion'])) {
-                $accion = $_POST['accion'];
-        
-                if ($accion === 'Comprar') {
-                    // Se hizo clic en el botón "Comprar"
-                
-                    $producto = Producto::where('codigo', $codigo);
-                    $total = $cantidad * $producto->precio;
+            if (isset($_POST['accion'])  && $_POST['accion'] === 'AgregarCarrito') {
+               // Se hizo clic en el botón "Agregar Carrito"
+                $producto = new Producto();
+                $producto = Producto::where('codigo', $codigo);  
+                if(! isset($_SESSION['login'])){
+                    $alertas['error'][] = 'Debes Iniciar Sesión';                    
+                }else{                    
+                    if (!isset($_SESSION['carrito'])) {
+                        $_SESSION['carrito'] = array();
+                    }
+                    $encontrado = false;
 
-                    $router->mostrarVista('paginas/comprar', [
-                        'cantidad' => $cantidad,
-                        'producto' => $producto,
-                        'total' => number_format($total,0,',','.')
-                    ]);
-                } elseif ($accion === 'AgregarCarrito') {
-                    // Se hizo clic en el botón "Agregar Carrito"
-                    $producto = new Producto();
-                    $producto = Producto::where('codigo', $codigo);  
-                    if(! isset($_SESSION['login'])){
-                        $alertas['error'][] = 'Debes Iniciar Sesión';                    
-                    }else{                    
-                        if (!isset($_SESSION['carrito'])) {
-                            $_SESSION['carrito'] = array();
-                        }
-                        $encontrado = false;
-
-                        for ($i = 0; $i < count($_SESSION['carrito']); $i++) {
-                        $codigoActual = $_SESSION['carrito'][$i]['codigo'];
-                        
+                    for ($i = 0; $i < count($_SESSION['carrito']); $i++) {
+                        $codigoActual = $_SESSION['carrito'][$i]['codigo'];                        
                         if ($codigoActual === $codigo) {
                             $_SESSION['carrito'][$i]['cantidad'] = $cantidad;
                             $encontrado = true;
                             break;
                         }
-                        }
-
-                        if (!$encontrado) {
-                        array_push($_SESSION['carrito'], array("codigo" => $codigo, "cantidad" => $cantidad));
-                        }
-                        $alertas['exito'][] = 'Agregado al carrito';
                     }
-                   
-                    $router->mostrarVista('paginas/producto', [                       
-                        'alertas' => $alertas,
-                        'producto' => $producto
-                    ]);
+                    if (!$encontrado) {
+                        array_push($_SESSION['carrito'], array("codigo" => $codigo, "cantidad" => $cantidad));
+                    }
+                    $alertas['exito'][] = 'Agregado al carrito';
                 }
+                   
+                $router->mostrarVista('paginas/producto', [                       
+                    'alertas' => $alertas,
+                    'producto' => $producto
+                ]);
             } 
-        }
-        $alertas=[];
-        $codigo = $_GET['codigo'];
-        $producto = Producto::where('codigo', $codigo);
-        $router->mostrarVista("paginas/producto",[       
-            'producto'=> $producto,
-            'alertas'=> $alertas
-        ]);
+        }else if( $_SERVER['REQUEST_METHOD'] === 'GET'){
+            $alertas=[];
+            $codigo = $_GET['codigo'];
+            $producto = Producto::where('codigo', $codigo);
+            $router->mostrarVista("paginas/producto",[       
+                'producto'=> $producto,
+                'alertas'=> $alertas
+            ]);
+        }       
     }
 
 
     // public static function crearAdmin(Router $router){
     //     $cedula = 27840650;
-    //     $nombres = "maria";
+    //     $nombres = "karina";
     //     $apellidos = "mendoza";
-    //     $correo = "maria@gmail.com";
-    //     $clave = password_hash("Maria10", PASSWORD_BCRYPT);
+    //     $correo = "karina@gmail.com";
+    //     $clave = password_hash("Karina1", PASSWORD_BCRYPT);
     //     // debuguear( $clave);
     //     $persona=[
     //         'cedula'=>$cedula, 

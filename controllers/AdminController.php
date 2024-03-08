@@ -123,9 +123,7 @@ class AdminController{
             }
         }
     }
-
     
-
 
     // public static function crearAdmin(Router $router){
     //     $cedula = 27840650;
