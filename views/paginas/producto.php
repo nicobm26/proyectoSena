@@ -2,6 +2,9 @@
 
 <?php
     include_once __DIR__ . '/../templates/alertas.php';
+    use Model\UnidadesMedida;
+    $unidad = new UnidadesMedida();
+    $unidad = UnidadesMedida::where('codigo', $producto->codigoMedida);
 ?>
 
 <section class="Click-Producto-Contenedor">
@@ -10,7 +13,7 @@
         <h2><?php $producto->nombre ?></h2>
         <a href="Click.html"><img class="imgProductos" src="imagenes/<?php echo $producto->imagen ?>" alt="<?php echo $producto->nombre ?>"></a>
         <p><strong>Nombre:</strong> <?php echo $producto->nombre ?> </p>
-        <p>750ml</p>
+        <p><?php echo $producto->cantidad ?> <?php echo $unidad->abreviatura; ?></p>
         <p><strong>Precio:</strong> <?php echo number_format($producto->precio, 0, ',' , '.') ?> COP</p>
         <a href="/producto?codigo=<?php echo $producto->codigo ?>"><button class="button-Producto">Agregar al carrito</button></a>
     </article>
@@ -33,7 +36,7 @@
                     <option value="10">10+</option>
                 </select></p>
                 <input type="hidden" name="codigo" value="<?php echo $producto->codigo ?>">
-                <input type="submit" class="boton-Comprar" name="accion" value="Comprar">
+                <input type="submit" class="boton-Comprar" formaction="/comprar" name="accion" value="Comprar">
                 <input type="submit" class="boton-Comprar" name="accion" value="AgregarCarrito">
             </form>
             
