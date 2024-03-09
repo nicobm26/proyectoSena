@@ -270,13 +270,16 @@ h2 {
 .elementos {
   display: flex;
   justify-content: space-between; 
-  flex-wrap: wrap;
+  flex-direction: column;
+  // flex-wrap: wrap;
+  @include m.tablet {
+    flex-direction: row;
+  }
 }
 
 .elemento {
   flex: 0 0 calc(30% - 20px);
-  margin: 10px;
-  margin-left: 4rem
+  margin: 15px;
 }
 
 .producto {
@@ -293,7 +296,7 @@ h2 {
 
 .icono img {
   width: 36rem;
-  height: 45rem;
+  height: 30rem;
 }
 
 
