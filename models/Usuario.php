@@ -68,6 +68,15 @@ class Usuario extends ActiveRecord{
         return self::$alertas;
     }
 
+    public function validarCorreo(){
+        if(empty($this->correo) ){
+            self::$alertas['error'][] = 'El correo es obligatorio';
+        }else if(!filter_var($this->correo, FILTER_VALIDATE_EMAIL)) {
+            self::$alertas['error'][] = 'El correo no tiene el formato correcto';
+        }
+        return self::$alertas;
+    }
+
     public function validarLogin(){
         if(empty($this->correo) ){
             self::$alertas['error'][] = 'El correo es obligatorio';
