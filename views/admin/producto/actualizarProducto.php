@@ -74,5 +74,5 @@
                 </select> 
     </div>
 
-    <input type="submit" value="enviar" class="boton">
+    <input type="submit" value="Actualizar" class="boton">
 </form>
