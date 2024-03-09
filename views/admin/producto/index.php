@@ -32,9 +32,9 @@
                 <p class="property-name"><span>Codigo: </span><?php echo $producto->codigo ?></p>
                 <p class="property-name"><span>Nombre: </span><?php echo $producto->nombre ?></p>
                 <p class="property-name"><span>Precio: </span><?php echo $producto->precio ?></p>
-                <p>Stock: <?php echo $producto->stock ?> </p>
-                <p>Medida: <?php echo $producto->codigoMedida ?></p>
-                <p>Cedula Administrador: <?php echo $producto->cedulaAdministrador ?> </p>
+                <p class="property-name"><span>Stock: </span> <?php echo $producto->stock ?> </p>
+                <p class="property-name"><span>Medida: </span> <?php echo $producto->codigoMedida ?></p>
+                <p class="property-name"><span>Cedula Administrador: </span> <?php echo $producto->cedulaAdministrador ?> </p>
                 <!-- Agrega más características aquí según sea necesario -->
             </div>
 
@@ -42,9 +42,9 @@
                 <form method="post" class="w-100" action="/producto/eliminar">
                     <input type="hidden" name="codigo" value="<?php echo $producto->codigo ?>">
                     <input type="hidden" name="tipo" value="producto">
-                    <input type="submit" class="boton-rojo-block" value="Eliminar">
+                    <input type="submit" class="boton-eliminar" value="Eliminar">
                 </form>
-                <a href="/producto/actualizar?codigo=<?php echo $producto->codigo?>" class="boton-amarillo-block">Actualizar</a>
+                <a href="/producto/actualizar?codigo=<?php echo $producto->codigo?>" class="boton-actualizar">Actualizar</a>
             </div>
         </div>
     <?php } ?>
