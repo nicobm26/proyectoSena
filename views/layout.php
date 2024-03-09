@@ -6,9 +6,9 @@
         $acceso=1;
         if(isset($_SESSION['rol'])){
             $acceso=2;
-            include_once 'templates/headerAdmin.php';
+            include_once __DIR__ . '/templates/headerAdmin.php';
         }else if(isset($_SESSION)){
-            include_once 'templates/header.php';
+            include_once __DIR__ .'/templates/header.php';
         }
     }else{
         include_once 'templates/header.php';
@@ -21,6 +21,9 @@
         <!-- </div> -->
     <!-- </div> -->
 
+    <?php
+        include_once __DIR__ . "/templates/footer.php";
+    ?>
     <?php
         echo $script ?? '';
     ?>      

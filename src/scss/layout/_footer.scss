@@ -1,0 +1,10 @@
+@use 'base/variables' as v;
+
+footer{
+    margin-top: 6rem;
+    background-color: v.$colorCabacera;
+    p{
+        font-weight: v.$bold;
+        text-align: center;
+    }
+}
