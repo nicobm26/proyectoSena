@@ -1,4 +1,4 @@
-<h1>producto</h1>
+<h1 class="titulo">producto</h1>
 
 <?php
     include_once __DIR__ . '/../templates/alertas.php';
@@ -7,19 +7,18 @@
     $unidad = UnidadesMedida::where('codigo', $producto->codigoMedida);
 ?>
 
-<section class="Click-Producto-Contenedor">
+<section class="contenedor-producto">
 
-    <article class="cont-miel">
-        <h2><?php $producto->nombre ?></h2>
+    <article class="productoSeleccionado">
+        <h2 class="titulo"><?php echo $producto->nombre ?></h2>
         <a href="Click.html"><img class="imgProductos" src="imagenes/<?php echo $producto->imagen ?>" alt="<?php echo $producto->nombre ?>"></a>
-        <p><strong>Nombre:</strong> <?php echo $producto->nombre ?> </p>
-        <p><?php echo $producto->cantidad ?> <?php echo $unidad->abreviatura; ?></p>
-        <p><strong>Precio:</strong> <?php echo number_format($producto->precio, 0, ',' , '.') ?> COP</p>
-        <a href="/producto?codigo=<?php echo $producto->codigo ?>"><button class="button-Producto">Agregar al carrito</button></a>
+        <p><strong>Cantidad: </strong><?php echo $producto->cantidad ?> <?php echo $unidad->abreviatura; ?></p>
+        <p><strong>Precio:</strong> <?php echo number_format($producto->precio, 0, ',' , '.')?> COP</p>
+       
     </article>
 
-    <article class="CLick-segundo-article">
-        <h2>Información</h2>
+    <article class="productoSeleccionado productoSeleccionado__diferente">
+        <h2 class="titulo">Información</h2>
             <form method="post">
                         
             <p>Cantidad 
@@ -36,8 +35,8 @@
                     <option value="10">10+</option>
                 </select></p>
                 <input type="hidden" name="codigo" value="<?php echo $producto->codigo ?>">
-                <input type="submit" class="boton-Comprar" formaction="/comprar" name="accion" value="Comprar">
-                <input type="submit" class="boton-Comprar" name="accion" value="AgregarCarrito">
+                <input type="submit" class="boton" formaction="/comprar" name="accion" value="Comprar">
+                <input type="submit" class="boton" name="accion" value="AgregarCarrito">
             </form>
             
     </article>

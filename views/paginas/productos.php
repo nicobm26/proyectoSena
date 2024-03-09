@@ -1,4 +1,4 @@
-<h1 class="centrar-T-Producto">PRODUCTOS</h1>
+<h1 class="centrar titulo">productos</h1>
 
 
 <section class="Cont-Productos">
@@ -11,14 +11,12 @@
     <article class="cont-miel">
         <h2 class="titulo-producto"><?php echo $producto->nombre?></h2>
 
-        <div class="contenedor-imagen">
-            <a href="/producto?codigo=<?php echo $producto->codigo?>">
-                <img class="imgProductos" src="imagenes/<?php echo $producto->imagen?>" alt="<?php echo $producto->nombre?>">
-            </a>            
-        </div>       
-       
-        <p><?php echo $producto->cantidad ?> <?php echo $unidad->abreviatura; ?></p>
-        <p><strong>Precio:</strong> <?php echo number_format($producto->precio, 0, ',' , '.')  ?> COP</p>
+        <a href="/producto?codigo=<?php echo $producto->codigo?>">
+            <img class="imgProductos" src="imagenes/<?php echo $producto->imagen?>" alt="<?php echo $producto->nombre?>">
+        </a>            
+           
+        <p><strong>Medida: </strong><?php echo $producto->cantidad ?> <?php echo $unidad->abreviatura; ?></p>
+        <p><strong>Precio: </strong> <?php echo number_format($producto->precio, 0, ',' , '.')  ?> COP</p>
         <a href="/producto?codigo=<?php echo $producto->codigo?>"><button class="button-Producto">Ver Más</button></a>        
     </article>
 
@@ -26,4 +24,6 @@
     }
     ?>
 </section>
+
+
 

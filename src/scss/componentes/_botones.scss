@@ -2,11 +2,12 @@
 @use 'base/mixins' as m;
 
 .boton{
-    @include m.boton(v.$colorCabacera, v.$blanco);
-    width: 40%;
+    @include m.boton( darken(v.$colorCabacera, 10%),  v.$blanco);
+    width: 80%;
     margin: 0 auto;
+    margin-bottom: 1rem;
     @include m.tablet {
-        width: 40%;
+        width: 80%;
     }
 }
 

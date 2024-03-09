@@ -1,38 +1,63 @@
-@use "base/variables" as v;
-@use "base/mixins" as m;
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
 
-.centrar-T-Producto {
-  text-align: center;
+
+.contenedor {
+  max-width: 120rem;
+  width: 90%;
+  margin: 0 auto;
 }
 
-.contenedor-imagen{
-  width: 100%;
+.productosDestacados {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
-img{
-  max-width: 100%;
+@media (max-width: 320px) {
+  .productosDestacados {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+}
+
+/* DESDE AGUI ABAJO INCIA EL CSS DE LOS PRODUCTOS BY DANIEL*/
+
+.titulo {
+  text-transform: capitalize;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  color: v.$colorTexto;
 }
 
 .Cont-Productos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(1, 1fr);  
+  gap: 5rem;
   background-color: #fcd24700;
   justify-items: center;
+  @include m.tablet {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 7rem;
+    column-gap: 0;
+  }
+  @include m.desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
-
 .imgProductos {
-  height: 360px;
+  height: 400px;
   width: 400px;
   border-radius: 20px;
   object-fit: cover;
-  overflow-clip-margin: content-box;
 }
 
 .cont-miel {
   display: block;
-  // width: 300px;
+  width: 300px;
   height: auto;
+  // justify-content: flex;
   margin: 20px;
+  margin: 0 auto;
   text-align: center;
   border: 2px solid rgb(246, 138, 15);
   padding: 10px;
@@ -40,23 +65,9 @@ img{
   border-radius: 20px;
   transition: transform 0.3s;
 }
+
 .cont-miel:hover {
   transform: scale(1.03);
-}
-
-@media (max-width: 767px) {
-  .Cont-Productos {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-}
-@media (max-width: 728px) {
-  .Cont-Productos {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-  }
 }
 
 .button-Producto {
@@ -138,4 +149,32 @@ img{
   padding-bottom: 200px;
   padding: 50px;
   font-size: 20px;
+}
+
+
+.contenedor-producto{
+  display: grid;
+  grid-template-columns: 1fr;
+  @include m.tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.productoSeleccionado{
+  border: 2.5px solid v.$colorCabacera;
+  background-color: v.$colorCabacera;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s;
+  margin: 2rem;
+  @include m.tablet {
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+}
+
+.productoSeleccionado__diferente{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
