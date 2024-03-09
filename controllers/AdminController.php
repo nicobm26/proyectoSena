@@ -90,7 +90,9 @@ class AdminController{
 
             $nombreImagen = $producto->codigo . ".jpg";
             if($_FILES['producto']['tmp_name']['imagen']){
-                $image = Image::make($_FILES['producto']['tmp_name']['imagen'])->fit(800,600);
+                // $image = Image::make($_FILES['producto']['tmp_name']['imagen'])->fit(800,600);
+                // $image = Image::make($_FILES['producto']['tmp_name']['imagen'])->resize(600, 400);
+                $image = Image::make($_FILES['producto']['tmp_name']['imagen']);
                 $producto->setImagen($nombreImagen);
             }
 
