@@ -6,11 +6,21 @@
         @content;
     }
 }
+
+@mixin telefono375 {
+    @media (min-width: v.$telefono375) {
+        @content;
+    }
+}
+
 @mixin telefono {
     @media (min-width: v.$telefono) {
         @content;
     }
 }
+
+
+
 @mixin tablet {
     @media (min-width: v.$tablet) {
         @content;
