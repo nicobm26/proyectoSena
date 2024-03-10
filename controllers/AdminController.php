@@ -12,12 +12,14 @@ use Model\UnidadesMedida;
 class AdminController{
 
     public static function index(Router $router){
+        isAdmin();
 
         $router->mostrarVista("admin/index",[
         ]);
     }
 
     public static function producto(Router $router){
+        isAdmin();
         $productos = Producto::all();
         $producto = null;
         if($_SERVER['REQUEST_METHOD'] === 'POST'){   
@@ -36,7 +38,8 @@ class AdminController{
     }
 
     public static function agregarProducto(Router $router){
-       
+        isAdmin();
+
         $unidadesMedidas = UnidadesMedida::all();    
         // debuguear($unidadesMedidas);
         
@@ -80,6 +83,7 @@ class AdminController{
 
 
     public static function actualizarProducto(Router $router){
+        isAdmin();
         $unidadesMedidas = UnidadesMedida::all();
         $codigo = $_GET['codigo'];
         $producto = Producto::where('codigo', $codigo);
@@ -120,6 +124,7 @@ class AdminController{
 
     
     public static function eliminarProducto(){
+        isAdmin();
         if($_SERVER['REQUEST_METHOD']=== "POST"){
             
             $codigo = $_POST["codigo"];        

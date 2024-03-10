@@ -30,6 +30,7 @@ class ComprarController{
     }
 
     public static function carrito(Router $router){
+        isAuth();
         $alertas=[];
         $productos=[];
         $medida = new UnidadesMedida();

@@ -8,7 +8,8 @@ use Model\UnidadesMedida;
 
 class MedidaController{
 
-    public static function index(Router $router){      
+    public static function index(Router $router){    
+        isAdmin();  
         $unidades = UnidadesMedida::all(); 
         $unidad = null;
         $alertas = [];
@@ -30,7 +31,7 @@ class MedidaController{
     }
 
     public static function agregarMedida(Router $router){
-                         
+        isAdmin(); 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){    
             $unidad = new UnidadesMedida( array_map("trim", $_POST['producto']));
             $alertas = $unidad->validar();
@@ -49,6 +50,7 @@ class MedidaController{
     }
 
     public static function actualizarMedida(Router $router){
+        isAdmin(); 
         $unidad = new UnidadesMedida();
         $alertas=[];
 
@@ -81,6 +83,7 @@ class MedidaController{
     }
 
     public static function eliminarMedida(Router $router){
+        isAdmin(); 
         if($_SERVER['REQUEST_METHOD']=== "POST"){
             $codigo = $_POST["codigo"];        
             // debuguear($_POST);

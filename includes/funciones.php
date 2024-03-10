@@ -22,7 +22,6 @@ function isAuth(): void{
 }
 
 function isAdmin(): void{
-    isAuth();
     // debuguear($_SESSION); // vacioo
     if(!isset($_SESSION['admin']) || empty($_SESSION)){
         header('Location: /');
