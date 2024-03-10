@@ -1,40 +1,39 @@
 <section id="container-slider">
-    <a href="javascript: funcionEjecutar('anterior');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
-    <a href="javascript: funcionEjecutar('siguiente');" class="arrowNext"><i class="fas fa-chevron-circle-right"></i></a>
+    <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
+    <a href="javascript: fntExecuteSlide('next');" class="arrowNext"><i class="fas fa-chevron-circle-right"></i></a>
     <ul class="listslider">
-        <li><a id="itList_0" href="#" class="item-select-slid"></a></li>
-        <li><a id="itList_1" href="#"></a></li>
-        <li><a id="itList_2" href="#"></a></li>
+        <li><a itlist="itList_0" href="#" class="item-select-slid"></a></li>
+        <li><a itlist="itList_1" href="#"></a></li>
+        <li><a itlist="itList_2" href="#"></a></li>
     </ul>
     <ul id="slider">
-        <li class="foto1">
+        <li style="background-image: url('../build/img/IlderApicultor.webp'); z-index:0; opacity: 1;">
             <div class="content_slider">
                 <div>
                     <h2>ApicolasGenesis.com</h2>
                     <p>"La miel de la felicidad, ahora a un click de distancia."</p>
-                    <a href="" target="_blank" class="btnSlider">Iniciar Sesión</a>
+                    <a href="#" target="_blank" class="btnSlider">Iniciar Sesión</a>
                 </div>
             </div>
         </li>
-        <li class="foto2">
+        <li style="background-image: url('../build/img/productos.webp'); z-index:0; opacity: 1;">
             <div class="content_slider">
                 <div>
                     <h2>ApicolasGenesis.com</h2>
                     <p>"Haz clic, endúlzate. La mejor miel, ahora virtualmente tuya".</p>
-                    <a href="" target="_blank" class="btnSlider">Iniciar Sesión</a>
+                    <a href="#" target="_blank" class="btnSlider">Iniciar Sesión</a>
                 </div>
             </div>
         </li>
-        <li class="foto3">
+        <li style="background-image: url('../build/img/presentacion1.webp'); z-index:0; opacity: 1;">
             <div class="content_slider">
                 <div>
                     <h2>ApicolasGenesis.com</h2>
                     <p>"Tu destino dulce está a un clic de distancia en nuestra tienda de miel online."</p>
-                    <a href="" target="_blank" class="btnSlider">Iniciar Sesión</a>
+                    <a href="#" target="_blank" class="btnSlider">Iniciar Sesión</a>
                 </div>
             </div>
         </li>
-
     </ul>
 </section>
 <div class="contenedor">
@@ -89,7 +88,7 @@
 
 <?php
  $script = "
-    <script src='build/js/index.js'> </script>
+    <script src='/build/js/index.js'> </script>
     <script defer src='https://use.fontawesome.com/releases/v5.0.6/js/all.js'></script>
  ";
 ?>
