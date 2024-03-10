@@ -17,6 +17,9 @@
     text-align: center;
     margin: 0 auto 2rem auto;
     border-radius: 1rem;
+    @include m.tablet {
+        max-width: 40%;
+    }
 }
 
 .boton-comun-enviar{

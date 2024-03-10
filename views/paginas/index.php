@@ -40,10 +40,10 @@
 <div class="contenedor">
     <div class="caja-negra">
         <div class="descripcion">
-            <h2 class="titulo_apicolas">Apicolas Genesis</h2>
-            <p>Bienvenido a ApicolasGenesis.com, tu destino premium para productos de miel excepcionales. En nuestra tienda, no solo ofrecemos miel de la más alta calidad, sino que también nos esforzamos por proporcionar una experiencia única y satisfactoria para nuestros clientes.</p>
+            <h2 class="titulo_apicolas">Apícolas Génesis</h2>
+            <p>Bienvenido a Apícola Génesis, tu destino premium para productos de miel excepcionales. En nuestra tienda, no solo ofrecemos miel de la más alta calidad, sino que también nos esforzamos por proporcionar una experiencia única y satisfactoria para nuestros clientes.</p>
             <p>Descubre la exquisitez de nuestros productos, desde la miel pura y cruda hasta los subproductos de la colmena, como la propóleo y la jalea real. Cada artículo en nuestra tienda ha sido seleccionado con cuidado para garantizar no solo el sabor excepcional, sino también los beneficios para la salud que la miel y sus derivados pueden aportar a tu vida.</p>
-            <a href="#">
+            <a href="/nosotros">
                 <button class="boton">Ver más</button>
             </a>
         </div>
@@ -56,26 +56,32 @@
     <div class="elementos">
         <div class="elemento">
             <div class="producto">
-                <div class="icono">
-                    <img src="/build/img/propoleo.jpg" alt="Propóleo">
-                </div>
-                <p class="subtitulo2">Propóleo</p>
+                <a href="/producto?codigo=4">
+                    <div class="icono">
+                        <img src="/build/img/propoleo.jpg" alt="Propóleo">
+                    </div>
+                    <p class="subtitulo2">Propóleo</p>
+                </a>                
             </div>
         </div>
         <div class="elemento">
             <div class="producto">
-                <div class="icono">
-                    <img src="/build/img/litroDeMiel2.jpg" alt="Miel">
-                </div>
-                <p class="subtitulo2">Miel</p>
+                <a href="/producto?codigo=1">
+                    <div class="icono">
+                        <img src="/build/img/litroDeMiel2.jpg" alt="Miel">
+                    </div>
+                    <p class="subtitulo2">Miel</p>                    
+                </a>                
             </div>
         </div>
         <div class="elemento">
             <div class="producto">
-                <div class="icono">
-                    <img src="/build/img/polen2.jpg" alt="Jalea">
-                </div>
-                <p class="subtitulo2">Polen</p>
+                <a href="/producto?codigo=2">
+                    <div class="icono">
+                        <img src="/build/img/polen2.jpg" alt="Jalea">
+                    </div>
+                    <p class="subtitulo2">Polen</p>
+                </a>                
             </div>
         </div>
     </div>

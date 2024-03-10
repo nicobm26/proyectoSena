@@ -12,11 +12,8 @@ body {
     background-color: v.$colorFondoPagina;
     color: v.$blanco;
     font-family: v.$fuente_principal;
-    font-size: 1.6rem;
-    
-    // display: grid;
+    font-size: 1.6rem;    
     min-height: 100vh;
-    // grid-template-rows: auto 1fr;
 }
 
 *, *:before, *:after {
@@ -47,6 +44,14 @@ img {
 
 .centrar {
     text-align: center;
+}
+
+.justificado{
+    text-align: justify;
+}
+
+.m-b-2rem{
+    margin-bottom: 3.5rem;
 }
 
 .swal2-popup {
