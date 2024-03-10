@@ -11,49 +11,51 @@ class MedidaController{
     public static function index(Router $router){      
         $unidades = UnidadesMedida::all(); 
         $unidad = null;
+        $alertas = [];
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $codigo = $_POST['codigo'];
             $unidad = UnidadesMedida::where('codigo', $codigo);
+            if(empty($unidad)){
+                $alertas['error'][] = 'No se encuentra ese codigo de medida';
+            }
         }else if($_SERVER['REQUEST_METHOD'] === 'GET'){
             $unidades = UnidadesMedida::all();         
         }
 
         $router->mostrarVista('admin/medida/index', [
             'unidades' => $unidades,
-            'unidad' => $unidad
+            'unidad' => $unidad,
+            'alertas' => $alertas
         ]);    
     }
 
     public static function agregarMedida(Router $router){
-       
-        $unidadesMedidas = UnidadesMedida::all();    
-        // debuguear($unidadesMedidas);
-        
+                         
         if($_SERVER['REQUEST_METHOD'] === 'POST'){    
-            $producto = new Producto($_POST['producto']);
-         
-     
-            $alertas = $producto->validar();
+            $unidad = new UnidadesMedida( array_map("trim", $_POST['producto']));
+            $alertas = $unidad->validar();
             if(empty($alertas)){
-    
                 // Guarda en la base de datos
-                $resultado = $producto->guardarLLaveDefinida('codigo');
+                $resultado = $unidad->guardarLLaveDefinida('codigo');
 
                 if($resultado) {
-                    header('location: /admin');
+                    header('location: /medida');
                 }
             }
         }
 
-        $router->mostrarVista("admin/producto/agregarProducto",[
-            'unidadesMedidas' => $unidadesMedidas
+        $router->mostrarVista("admin/medida/agregarMedida",[        
         ]);
     }
 
     public static function actualizarMedida(Router $router){
         $unidad = new UnidadesMedida();
         $alertas=[];
-        if($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['unidad'])){
+
+        if($_SERVER['REQUEST_METHOD'] === 'GET'){
+            $codigo =  $_GET['codigo'];
+            $unidad = UnidadesMedida::where('codigo', $codigo);
+        }else if($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['unidad'])){
             $codigo =  $_POST['codigo'];
             $unidad = UnidadesMedida::where('codigo', $codigo);
         }else{
@@ -71,6 +73,7 @@ class MedidaController{
                 }
             }
         }
+       
         $router->mostrarVista('admin/medida/actualizarMedida', [
             'unidad' => $unidad,
             'alertas' => $alertas
@@ -85,7 +88,7 @@ class MedidaController{
                 $unidad = UnidadesMedida::where('codigo', $codigo);      
                 // debuguear($unidad);      
                 $unidad->eliminarLlaveExcepciones('codigo', $codigo);
-                debuguear($unidad);
+                // debuguear($unidad);
                 header('location: /medida');
             }
         }

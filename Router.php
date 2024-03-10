@@ -27,7 +27,8 @@ class Router {
         '/vendedor/crear' , '/vendedor/actualizar' , '/vendedor/eliminar'];
 
 
-        $urlActual = $_SERVER['PATH_INFO'] ?? "/";
+        // $urlActual = $_SERVER['PATH_INFO'] ?? "/";
+        $urlActual = strtok($_SERVER['REQUEST_URI'], '?') ?? '/';
         $metodo = $_SERVER["REQUEST_METHOD"];
         // debugear($urlActual);
         if($metodo === "GET"){

@@ -50,7 +50,7 @@ include_once __DIR__ . "/../templates/alertas.php";
                 <label for="login-check" class="login__check-label">Recordar me</label>
             </div>
 
-            <a href="#" class="login__forgot">Olvidaste tu contraseña?</a>
+            <a href="/olvide" class="login__forgot">Olvidaste tu contraseña?</a>
         </div>
 
         <button type="submit" class="login__button">Iniciar Sesión</button>

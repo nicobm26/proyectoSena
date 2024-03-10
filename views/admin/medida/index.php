@@ -1,5 +1,5 @@
 <main>
-    <h2>Lista de Productos</h2>
+    <h2 class="titulo">Administración de unidades de medida</h2>
     
     <div class="opciones">
         <a class="boton-opcion" href="/medida"> Listar Todos</a>
@@ -17,23 +17,26 @@
     </form>
 
     <?php
-    if($unidad != null ){
-                                ?>
-    <div class="card">
+    // debuguear($unidad);
+      include_once __DIR__ . '/../../templates/alertas.php';
+
+    if(!$unidad == null) { ?>
+    <div class="cardMedida">
             <!-- Apartado izquierdo con imagen y nombre de la producto -->
-            <div class="left">
+            <div >
                 <p class="property-name"><span>Codigo: </span><?php echo $unidad->codigo ?></p>
-                <p class="property-name"><span>Nombre: </span><?php echo $unidad->abreviatura ?></p>
+                <p class="property-name"><span>Nombre: </span><?php echo $unidad->descripcion ?></p>
                 <p class="property-name"><span>Precio: </span><?php echo $unidad->abreviatura ?></p>
             </div>
 
-            <div class="opciones">
-                <form method="post" class="w-100" action="/producto/eliminar">
+            <div class="card__opcionesMedida">
+                <form method="post" class="w-100" action="/medida/eliminar">
                     <input type="hidden" name="codigo" value="<?php echo $unidad->codigo ?>">
                     <input type="hidden" name="tipo" value="producto">
-                    <input type="submit" class="boton-rojo-block" value="Eliminar">
+                    <input type="submit" class="boton-eliminar"  value="Eliminar">
+                    <a href="/medida/actualizar?codigo=<?php echo $unidad->codigo?>" class="boton-actualizar">Actualizar</a>
                 </form>
-                <a href="/producto/actualizar?codigo=<?php echo $unidad->codigo?>" class="boton-amarillo-block">Actualizar</a>
+               
             </div>
         </div>
     <?php } else {?>
@@ -42,7 +45,7 @@
     
     foreach ($unidades as $unidad) {
         ?>
-   <div class="card">
+   <div class="cardMedida">
             <!-- Apartado derecho con características de la producto -->
             <div >
                 <p class="property-name"><span>Codigo: </span><?php echo $unidad->codigo ?></p>
@@ -50,10 +53,17 @@
                 <p class="property-name"><span>Precio: </span><?php echo $unidad->abreviatura ?></p>
             </div>
 
-            <div class="card__opciones">
-                <form method="post" class="w-100" action="/medida/eliminar">
+            <div class="card__opcionesMedida">
+                <form method="post" class="w-100" action="/medida/eliminar"
+                 id="formEliminarMedida-<?php echo $unidad->codigo?>"
+                 >
                     <input type="hidden" name="codigo" value="<?php echo $unidad->codigo ?>">
-                    <input type="submit" class="boton-eliminar" value="Eliminar">
+                    <input 
+                        type="submit" 
+                        class="boton-eliminar" 
+                        value="Eliminar"
+                        onclick="confirmDelete(event, 'formEliminarMedida-<?php echo $unidad->codigo; ?>')")"
+                        >
                     <input type="submit" class="boton-actualizar" formaction="/medida/actualizar" value="Actualizar" >
                 </form>
                 <!-- <a href="/medida/actualizar?codigo=<?php echo $unidad->codigo?>" class="boton-actualizar">Actualizar</a> -->
@@ -62,8 +72,14 @@
     <?php } 
     }
     ?>
-    
-
 </main>
+
+<?php
+$script = "
+    <script src='//cdn.jsdelivr.net/npm/sweetalert2@10'></script>
+    <script src='/build/js/alertas.js'></script>
+    <script src='https://kit.fontawesome.com/d74a8aa5fa.js' crossorigin='anonymous'></script>
+";
+?>
 
 

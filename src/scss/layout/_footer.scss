@@ -1,8 +1,12 @@
 @use 'base/variables' as v;
 
+.ayuda{
+    margin-bottom: 5rem;
+}
+
 footer{
-    margin-top: 6rem;
     background-color: v.$colorCabacera;
+    margin-top: auto;
     p{
         font-weight: v.$bold;
         text-align: center;

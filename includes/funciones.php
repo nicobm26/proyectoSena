@@ -14,3 +14,17 @@ function s($html) : string {
     $s = htmlspecialchars($html);
     return $s;
 }
+
+function isAuth(): void{
+    if(!isset($_SESSION['login'])){
+        header('Location: /');
+    }
+}
+
+function isAdmin(): void{
+    isAuth();
+    // debuguear($_SESSION); // vacioo
+    if(!isset($_SESSION['admin']) || empty($_SESSION)){
+        header('Location: /');
+    }
+}

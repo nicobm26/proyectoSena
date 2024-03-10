@@ -77,6 +77,15 @@ class Usuario extends ActiveRecord{
         return self::$alertas;
     }
 
+    public function validarPassword(){
+        if(!$this->clave){
+            self::$alertas['error'][] = 'La contraseña es obligatoria';
+        }else if( !preg_match("/^(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){5,})(?=(?:.*[0-9]){1})/", $this->clave)){
+            self::$alertas['error'][] = "La contraseña no es válida. Debe contener al menos 5 letras minúsculas, un número y una letra mayúscula.";
+        }
+        return self::$alertas;
+    }
+
     public function validarLogin(){
         if(empty($this->correo) ){
             self::$alertas['error'][] = 'El correo es obligatorio';
@@ -125,6 +134,6 @@ class Usuario extends ActiveRecord{
         }else{
             return true;
         }
-    }
+    }   
 }
 ?>

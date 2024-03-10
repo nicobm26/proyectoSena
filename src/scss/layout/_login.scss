@@ -10,11 +10,12 @@ button{
 .login{
    position: relative;
    // height: 100vh;
-   height: calc(100vh - 200px);
+   // height: calc(100vh - 200px);      
    display: grid;
    align-items: center;
    margin-top: 3rem;
    margin: 4rem auto 2rem auto; 
+   
 
    &__img{
       position: absolute;
@@ -160,10 +161,27 @@ button{
    }
    .login__form {
      width: 432px;
-     padding: 6.4rem 4.8rem 5.6rem;
+   //   padding: 6.4rem 4.8rem 5.6rem;
+     padding: 5rem 4.8rem 5rem;
      border-radius: 2.4rem;
    }
    .login__title {
      font-size: 3.2rem;
    }
- }
+}
+
+
+.forget{
+   position: relative;
+   display: grid;
+   align-items: center;
+   margin: 1rem 0;
+   // margin: 4rem auto 2rem;
+   .clave{
+      margin-bottom: 2rem;
+   }
+}
+.acciones{
+   display: flex;
+   flex-direction: column;
+}

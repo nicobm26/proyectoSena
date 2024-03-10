@@ -71,10 +71,19 @@
             </div>
 
             <div class="card__opciones">
-                <form method="post" class="w-100" action="/producto/eliminar">
+                <form 
+                    method="post" class="w-100" 
+                    action="/producto/eliminar" 
+                    id="formEliminarProducto-<?php echo $producto->codigo?>">
+
                     <input type="hidden" name="codigo" value="<?php echo $producto->codigo ?>">
                     <input type="hidden" name="tipo" value="producto">
-                    <input type="submit" class="boton-eliminar" value="Eliminar">
+                    <input 
+                        type="submit" 
+                        class="boton-eliminar" 
+                        value="Eliminar"
+                        onclick="confirmDelete(event, 'formEliminarProducto-<?php echo $producto->codigo; ?>')")"
+                        >
                 </form>
                 <a href="/producto/actualizar?codigo=<?php echo $producto->codigo?>" class="boton-actualizar">Actualizar</a>
             </div>
@@ -85,3 +94,10 @@
 </main>
 
 
+<?php 
+$script = "
+    <script src='//cdn.jsdelivr.net/npm/sweetalert2@10'></script>
+    <script src='/build/js/alertas.js'></script>
+    <script src='https://kit.fontawesome.com/d74a8aa5fa.js' crossorigin='anonymous'></script>
+";
+?>

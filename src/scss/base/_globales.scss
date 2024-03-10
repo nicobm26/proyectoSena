@@ -11,14 +11,18 @@ body {
     flex-direction: column;
     background-color: v.$colorFondoPagina;
     color: v.$blanco;
+    font-family: v.$fuente_principal;
+    font-size: 1.6rem;
+    
+    // display: grid;
+    min-height: 100vh;
+    // grid-template-rows: auto 1fr;
 }
+
 *, *:before, *:after {
     box-sizing: inherit;
 }
-body {
-    font-family: v.$fuente_principal;
-    font-size: 1.6rem;
-}
+
 .contenedor {
     width: 95%;
     max-width: 1200px;
@@ -43,4 +47,14 @@ img {
 
 .centrar {
     text-align: center;
+}
+
+.swal2-popup {
+    font-family: v.$fuente_principal;
+    h1,h2,h3{
+        font-size: 3rem !important;
+    }
+    p,div,button{
+        font-size: 1.6rem !important;
+    }    
 }

@@ -141,6 +141,80 @@ class LoginController{
         header('Location: /');
     }
 
+    public static function olvide(Router $router){
+        $alertas=[];
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $auth = new Usuario($_POST);
+            $alertas = $auth->validarCorreo();
+
+            if(empty($alertas)){
+                $usuario = Usuario::where('correo', $auth->correo);
+                if($usuario && $usuario->confirmado == "1"){
+                    //Entra si existe el correo y esta confirmado
+                    //Generar token
+                    $usuario->crearToken();
+                    $usuario->guardarLLaveDefinida('cedula');
+
+                    //Enviar el correo
+                    $email = new Email($usuario->correo, $usuario->nombres, $usuario->token);
+                    $email->enviarInstrucciones();
+
+                    //Alerta de exito
+                    Usuario::setAlerta('exito','Revista tu email');
+
+                    // debuguear($usuario);
+                }else{
+                    Usuario::setAlerta('error', 'El usuario no existe o No está confirmado');
+                }
+            }            
+        }
+        $alertas = Usuario::getAlertas();      
+        $router->mostrarVista("/auth/olvide-password",[
+            'alertas' => $alertas
+        ]);
+    }
+
+
+    public static function recuperar(Router $router){      
+        $alertas = [];
+        $error = false;
+        $token = s($_GET["token"] ?? "");        
+        //Buscar usuario por su token
+        $usuario = Usuario::where('token', $token);
+
+
+        // Si token no obtiene un valor desde GET detenemos la renderización de la vista.
+        if(empty($usuario)){
+            Usuario::setAlerta('error','token no valido');
+            $error = true;
+        }
+
+        if($_SERVER["REQUEST_METHOD"] === "POST"){
+            //leer el nuevo password y guardarlo
+            $password = new Usuario($_POST);
+            // debuguear($password);
+            $alertas = $password->validarPassword();
+            if(empty($alertas)){
+                $usuario->clave = null;
+                $usuario->clave = $password->clave;
+                $usuario->hashPassword();
+                $usuario->token = null;
+
+                $resultado = $usuario->guardarLLaveDefinida('cedula');
+                if($resultado){
+                    header('Location: /login');
+                }
+            }            
+        }    
+
+        $alertas= Usuario::getAlertas();
+
+        $router->mostrarVista('auth/recuperar-password',[
+            'alertas'=>$alertas,
+            'error'=> $error
+        ]);
+    }
+
 
 }
 ?>

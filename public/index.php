@@ -41,6 +41,12 @@ $router->get("/registrar", [LoginController::class, 'registrar']);
 $router->post("/registrar", [LoginController::class, 'registrar']);
 $router->get("/logout", [LoginController::class, 'logout']);
 
+// Recuperar Password
+$router->get('/olvide', [LoginController::class, 'olvide']);
+$router->post('/olvide', [LoginController::class, 'olvide']);
+$router->get('/recuperar', [LoginController::class, 'recuperar']);
+$router->post('/recuperar', [LoginController::class, 'recuperar']);
+
 //Login admin
 $router->get("/loginAdmin", [LoginController::class, 'loginAdministrador']);
 $router->post("/loginAdmin", [LoginController::class, 'loginAdministrador']);

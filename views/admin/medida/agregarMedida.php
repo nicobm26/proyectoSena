@@ -22,5 +22,19 @@
         <textarea id="abreviatura" name=producto[abreviatura]"> </textarea>  
     </div>
 
-    <input type="submit" value="Agregar" class="boton">
+    <input 
+        type="submit" 
+        value="Agregar" 
+        class="boton"
+        onclick="servicioCreado(event)"
+        >
 </form>
+
+
+<?php
+$script = "
+    <script src='//cdn.jsdelivr.net/npm/sweetalert2@10'></script>
+    <script src='/build/js/alertas.js'></script>
+    <script src='https://kit.fontawesome.com/d74a8aa5fa.js' crossorigin='anonymous'></script>
+";
+?>

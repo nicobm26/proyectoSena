@@ -106,10 +106,19 @@ class ActiveRecord {
     //Es decir, la llave primaria no es generada automaticamente
     public function guardarLLaveDefinida($clavePrimaria) {
         $resultado = '';
+        $resultado =  $this->where($clavePrimaria, $this->$clavePrimaria);
+        // debuguear($resultado);
         if(!is_null($this->where($clavePrimaria, $this->$clavePrimaria))) {
             // actualizar  
-            // debuguear("actualizar")      ;
-            $resultado = $this->actualizar();
+            // debuguear($resultado);
+            // debuguear("actualizar");
+            $resultado = $resultado->sanitizarAtributos();
+
+            if (array_key_exists("id", $resultado)) {
+                $resultado = $this->actualizar();
+            }else{
+                $resultado = $this->actualizar($clavePrimaria, $resultado[$clavePrimaria]);
+            }            
         } else {
             // Creando un nuevo registro
             // debuguear('crear');
@@ -194,9 +203,10 @@ class ActiveRecord {
     }
 
     // Actualizar el registro
-    public function actualizar() {
+    public function actualizar($llavePrimaria = null, $valor = "") {
         // Sanitizar los datos
         $atributos = $this->sanitizarAtributos();
+        // debuguear($atributos);
 
         // Iterar para ir agregando cada campo de la BD
         $valores = [];
@@ -204,11 +214,19 @@ class ActiveRecord {
             $valores[] = "{$key}='{$value}'";
         }
 
-        // Consulta SQL
-        $query = "UPDATE " . static::$tabla ." SET ";
-        $query .=  join(', ', $valores );
-        $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
-        $query .= " LIMIT 1 "; 
+        if($llavePrimaria == null){
+            // Consulta SQL
+            //Teniendo en cuenta que solo se puede cuando la llave primaria se llama id y es autoincrementable
+            $query = "UPDATE " . static::$tabla ." SET ";
+            $query .=  join(', ', $valores );
+            $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
+            $query .= " LIMIT 1 "; 
+        }else{
+            $query = "UPDATE " . static::$tabla ." SET ";
+            $query .=  join(', ', $valores );
+            $query .= " WHERE $llavePrimaria = '" . trim($valor) . "' ";
+            $query .= " LIMIT 1 "; 
+        }
 
         // debuguear($query);
         // Actualizar BD
