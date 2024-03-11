@@ -2,50 +2,66 @@
 @use 'base/mixins' as m;
 
 .contenedor-carrito{
+    margin-top: 5rem;    
     @include m.tablet{
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        min-height: 100vh;
     }
-    .carrito-derecha{
+}
+.carrito__producto{
+    // box-shadow: 6px 20px 10px black;
+}
 
-        @include m.tablet{
-            height: auto;
-        }
+.cajaCarrito{
+    width: 300px;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+    display: grid;
+    justify-items: center;
+    border: 1px solid;
+    background-color: v.$colorCabacera;
+    border-radius: 1rem;
+    // box-shadow: 6px 20px 10px black;
+    @include m.tablet {
+        width: 90%;
+        grid-template-columns: repeat(4, 1fr);    
+        align-items: center;            
+        margin-bottom: 3rem;        
     }
-    .carrito-izquierda{
-        width: 95%;
-        margin: 0 auto;
-        padding: 3rem 0;
-        box-sizing: border-box;
-     
+}
+
+.carrito__item{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-direction: column;
+
+    @include m.tablet {
+        flex-direction: row;
+    }
+
+}
+
+.carrito__item__img{
+    @include m.tablet {
+        margin-left: 2rem;
+    }
+    
+    img{
+        width: 70px;
+        height: 70px;
+        border-radius: 1rem;
+    }
+}
+.carrito__item__info{
+    width: auto;
+    @include m.tablet {
+        width: 140px;
+    }
+    p{
+        display: inline-block;
         @include m.tablet {
-            // display: flex;
-            // flex-direction: column;
-            overflow: scroll;
-            overflow-x: hidden;
-            margin-right: 0;
-            padding-right: 1.5rem;
-            padding-left: 1.5rem;
-
-            .cajaCarrito{
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);   
-                align-items: center;
-                justify-items: center;
-                justify-content: center;         
-                gap: 3rem;            
-                border: 2px solid #ff6550;
-            }
-     
-            &::-webkit-scrollbar {
-                width: 0.9rem;
-            }
-     
-            &::-webkit-scrollbar-thumb {
-                background-color: rgba(255,255,255, .4);
-                border-radius: 5px;
-            }          
+            display: block;
         }
-    }
+    }  
 }

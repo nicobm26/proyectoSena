@@ -5,7 +5,8 @@ $unidad = new UnidadesMedida();
 // debuguear($_SESSION['carrito']);
 ?>
 <div class="contenedor-carrito">
-    <div class="carrito-izquierda">
+    <h2 class="titulo">Carro De compras</h2>
+    <div class="carrito__producto">
         <?php 
         $contador=0;
         foreach ($productos as $producto) { 
@@ -13,9 +14,14 @@ $unidad = new UnidadesMedida();
         ?>
 
         <div class="cajaCarrito">            
-            <div>
-                <p> <?php echo $producto->nombre ?> </p>
-                <p> <?php echo $producto->cantidad . " " .  $unidad->abreviatura ?> </p>
+            <div class="carrito__item">
+                <div class="carrito__item__img">
+                    <img src="/imagenes/<?php echo $producto->imagen ?>" alt="Imagen del producto">
+                </div>
+               <div class="carrito__item__info">
+                    <p> <?php echo $producto->nombre ?> </p>
+                    <p> <?php echo $producto->cantidad . " " .  $unidad->abreviatura ?> </p>
+               </div>                
             </div>
 
             <div>
@@ -23,9 +29,9 @@ $unidad = new UnidadesMedida();
                 <?php                  
                     echo $_SESSION['carrito'][$contador]['cantidad'];
                 ?>
-            </p>
-
+                </p>
             </div>
+
             <p><span>Total: </span>
             <?php                
                     echo $_SESSION['carrito'][$contador]['cantidad'] * $producto->precio;
@@ -39,10 +45,7 @@ $unidad = new UnidadesMedida();
                 </form>
 
             </div>
-
-            <div>
-
-            </div>
+       
         </div>
 
 
@@ -51,8 +54,6 @@ $unidad = new UnidadesMedida();
          $contador =  $contador + 1;
         } 
         ?>
-    </div>
-    <div class="carrito-derecha">
 
-    </div>
-</div>
+    </div> <!-- .carrito__producto -->
+</div>  <!-- .contenedor-carrito -->
