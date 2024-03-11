@@ -8,11 +8,6 @@
   margin: 0 auto;
 }
 
-// .productosDestacados {
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-around;
-// }
 @media (max-width: 320px) {
   .productosDestacados {
     flex-direction: column;
@@ -55,7 +50,6 @@
   display: block;
   width: 300px;
   height: auto;
-  // justify-content: flex;
   margin: 20px;
   margin: 0 auto;
   text-align: center;
@@ -70,17 +64,6 @@
   transform: scale(1.03);
 }
 
-.button-Producto {
-  padding: 8px;
-  border-radius: 10px;
-  background-color: yellow;
-}
-.button-Producto:hover {
-  background-color: #ffc107;
-}
-.button-Producto:active {
-  background-color: #f3ff07;
-}
 .combobox {
   text-align: center;
   margin-bottom: 20px;
@@ -150,7 +133,6 @@
   padding: 50px;
   font-size: 20px;
 }
-
 
 .contenedor-producto{
   display: grid;
