@@ -34,8 +34,6 @@ class LoginController{
 
                         //Redireccionamiento   ///Re pensar, ya que nostros tenems            
                         header("Location: /");      
-                    }else{
-                        Usuario::setAlerta('error', 'Clave incorrecta');
                     }
                 }else{
                     Usuario::setAlerta('error', 'Correo no registrado');
