@@ -6,6 +6,7 @@
     width: 80%;
     margin: 0 auto;
     margin-bottom: 1rem;
+    color: v.$colorTexto;
     @include m.tablet {
         width: 80%;
     }
