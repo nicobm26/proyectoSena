@@ -10,27 +10,27 @@
         <li style="background-image: url('../build/img/IlderApicultor.webp'); z-index:0; opacity: 1;">
             <div class="content_slider">
                 <div>
-                    <h2>ApicolasGenesis.com</h2>
+                    <h2>Apícola Génesis</h2>
                     <p>"La miel de la felicidad, ahora a un click de distancia."</p>
-                    <a href="#" target="_blank" class="btnSlider">Iniciar Sesión</a>
+                    <a href="/login" class="btnSlider">Iniciar Sesión</a>
                 </div>
             </div>
         </li>
-        <li style="background-image: url('../build/img/productos.webp'); z-index:0; opacity: 1;">
+        <li style="background-image: url('../build/img/productos.webp');">
             <div class="content_slider">
                 <div>
-                    <h2>ApicolasGenesis.com</h2>
+                    <h2>Apícola Génesis</h2>
                     <p>"Haz clic, endúlzate. La mejor miel, ahora virtualmente tuya".</p>
-                    <a href="#" target="_blank" class="btnSlider">Iniciar Sesión</a>
+                    <a href="/login" class="btnSlider">Iniciar Sesión</a>
                 </div>
             </div>
         </li>
-        <li style="background-image: url('../build/img/presentacion1.webp'); z-index:0; opacity: 1;">
+        <li style="background-image: url('../build/img/presentacion1.webp');">
             <div class="content_slider">
                 <div>
-                    <h2>ApicolasGenesis.com</h2>
+                    <h2>Apícola Génesis</h2>
                     <p>"Tu destino dulce está a un clic de distancia en nuestra tienda de miel online."</p>
-                    <a href="#" target="_blank" class="btnSlider">Iniciar Sesión</a>
+                    <a href="/login" class="btnSlider">Iniciar Sesión</a>
                 </div>
             </div>
         </li>
