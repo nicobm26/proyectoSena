@@ -96,6 +96,32 @@ class MedidaController{
             }
         }
     }
+
+    // Intente capturar la expecion, pero por el momento no funciona el codigo de eliminarMedidaExcepcion
+    public static function eliminarMedidaExcepcion(Router $router){
+        isAdmin(); 
+        if($_SERVER['REQUEST_METHOD'] === "POST"){
+            $codigo = $_POST["codigo"];        
+    
+            if($codigo){            
+                try {
+                    $unidad = new UnidadesMedida();
+                    $unidad->codigo = $codigo;
+                    // debuguear( $unidad);
+                    $resultado = $unidad->eliminarLlaveExcepciones('codigo', $codigo);
+    
+                    if ($resultado) {
+                        header('location: /medida');
+                    } else {
+                        echo "Error: No se pudo eliminar la medida.";
+                    }
+                } catch (Exception $excepcion) {
+                    echo "Error: Se ha producido un error al eliminar la medida.";
+                }
+            }
+        }
+    }
+    
 }
 
 
