@@ -34,7 +34,7 @@ class Email{
            $mail->Password =  $_ENV['EMAIL_PASS'];
 
 
-           $mail->setFrom("nicobomen32@gmail.com","AppSalon.com");
+           $mail->setFrom("apicolagenesis@gmail.com", "Apicola Genesis");
            $mail->addAddress($this->email , $this->nombre);
            $mail->Subject = "Confirmar tu cuenta";
 
@@ -76,7 +76,7 @@ class Email{
             $mail->Port = $_ENV['EMAIL_PORT'];
         
     
-            $mail->setFrom("nicobomen32@gmail.com");
+            $mail->setFrom("apicolagenesis@gmail.com", "Apicola Genesis");
             $mail->addAddress($this->email , $this->nombre);
             $mail->Subject = "Reestablece tu cuenta";
     
