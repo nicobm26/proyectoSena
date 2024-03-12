@@ -44,7 +44,7 @@ class AdminController{
         // debuguear($unidadesMedidas);
         
         if($_SERVER['REQUEST_METHOD'] === 'POST'){    
-            $producto = new Producto($_POST['producto']);
+            $producto = new Producto( array_map("trim", $_POST['producto']) );
             $producto->cedulaAdministrador = $_SESSION['cedula'];
             $imagen = $_FILES['producto'];
             
@@ -57,6 +57,7 @@ class AdminController{
                 $producto->setImagen($nombreImagen);
             }
             
+            // debuguear($producto);
             $alertas = $producto->validar();
             if(empty($alertas)){
     
@@ -88,8 +89,8 @@ class AdminController{
         $codigo = $_GET['codigo'];
         $producto = Producto::where('codigo', $codigo);
         if($_SERVER["REQUEST_METHOD"] == "POST"){
-            $args = $_POST['producto'];
-            // debuguear($args);
+            $args = array_map("trim", $_POST['producto']);        
+            // debuguear($codigoNuevo);
             $producto->sincronizar($args);
 
             $nombreImagen = $producto->codigo . ".jpg";
@@ -101,7 +102,7 @@ class AdminController{
             }
 
             $alertas = $producto->validar();
-
+            // debuguear($producto);
             //revisar que el arreglo de errores este vacio
             if(empty($alertas)){
                 // Realiza el resize con intervention  Y Setear la imagen
@@ -142,7 +143,7 @@ class AdminController{
     //     $cedula = 27840650;
     //     $nombres = "karina";
     //     $apellidos = "mendoza";
-    //     $correo = "Karina@gmail.com";
+    //     $correo = "karina@gmail.com";
     //     $clave = password_hash("Karina1", PASSWORD_BCRYPT);
     //     // debuguear( $clave);
     //     $persona=[
