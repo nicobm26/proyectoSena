@@ -63,6 +63,7 @@ class Email{
     
     public function enviarInstrucciones(){
          //Crear el objeto de mailer
+        $mensajeError = "";
         $mail = new PHPMailer(true);
         try {  
 
