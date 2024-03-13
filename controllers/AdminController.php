@@ -72,7 +72,7 @@ class AdminController{
                 $resultado = $producto->guardarLLaveDefinida('codigo');
 
                 if($resultado) {
-                    header('location: /admin');
+                    header('location: /administrarProducto');
                 }
             }
         }
@@ -126,12 +126,23 @@ class AdminController{
     
     public static function eliminarProducto(){
         isAdmin();
+        // $rutaImagen =  __DIR__ .'/../public/imagenes/';
+
         if($_SERVER['REQUEST_METHOD']=== "POST"){
-            
-            $codigo = $_POST["codigo"];        
             // debuguear($_POST);
+            $codigo = $_POST["codigo"];   
+            $codigo = filter_var($codigo,FILTER_VALIDATE_INT);    
+                              
+        
             if($codigo){            
-                $producto = Producto::where('codigo',$codigo);            
+                $producto = Producto::where('codigo',$codigo);               
+                $rutaImagen = CARPETA_IMAGENES . $producto->imagen;
+                // debuguear($rutaImagen);
+                //eliminar imagen
+                if(file_exists($rutaImagen)){                   
+                    unlink($rutaImagen);
+                }
+            
                 $producto->eliminarLlave('codigo',$codigo);
                 header('location: /administrarProducto');
             }
