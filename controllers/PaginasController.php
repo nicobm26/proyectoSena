@@ -8,10 +8,10 @@ use MVC\Router;
 class PaginasController{
 
     public static function index(Router $router){
-        //$propiedades = Propiedad::some(3);
+        $productos = Producto::some(3);
         $inicio = true;
         $router->mostrarVista("paginas/index",[
-            // "propiedades" => $propiedades,
+            "productos" => $productos,
             "inicio" => $inicio
         ]);
     }

@@ -12,7 +12,7 @@
     <article class="productoSeleccionado">
         <h2 class="titulo"><?php echo $producto->nombre ?></h2>
         <img class="imgProducto" src="imagenes/<?php echo $producto->imagen ?>" alt="<?php echo $producto->nombre ?>">
-        <p><strong>Cantidad: </strong><?php echo $producto->cantidad ?> <?php echo $unidad->abreviatura; ?></p>
+        <p><strong>Cantidad: </strong><?php echo $producto->cantidad ?> <?php echo (isset($unidad)) ? $unidad->abreviatura : "" ?></p>
         <p><strong>Precio:</strong> <?php echo number_format($producto->precio, 0, ',' , '.')?> COP</p>
        
     </article>

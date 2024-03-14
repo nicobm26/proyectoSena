@@ -53,36 +53,22 @@
 <div class="caja">
     <h2>Nuestros Productos Estrella</h2>
     <div class="elementos">
-        <div class="elemento">
-            <div class="producto">
-                <a href="/producto?codigo=4">
-                    <div class="icono">
-                        <img src="/build/img/propoleo.jpg" alt="Propóleo">
+        <?php if (isset($productos)) { ?> 
+            <?php foreach ( $productos as $producto ) : ?>
+                <div class="elemento">
+                    <div class="producto">
+                        <a href="/producto?codigo=<?php echo $producto->codigo?>">
+                            <div class="icono">
+                                <img src="/imagenes/<?php echo $producto->imagen?>" alt="imagen de <?php $producto->nombre?>">
+                            </div>
+                            <p class="subtitulo2"><?php echo $producto->nombre ?></p>
+                        </a>                
                     </div>
-                    <p class="subtitulo2">Propóleo</p>
-                </a>                
-            </div>
-        </div>
-        <div class="elemento">
-            <div class="producto">
-                <a href="/producto?codigo=1">
-                    <div class="icono">
-                        <img src="/build/img/litroDeMiel2.jpg" alt="Miel">
-                    </div>
-                    <p class="subtitulo2">Miel</p>                    
-                </a>                
-            </div>
-        </div>
-        <div class="elemento">
-            <div class="producto">
-                <a href="/producto?codigo=2">
-                    <div class="icono">
-                        <img src="/build/img/polen2.jpg" alt="Jalea">
-                    </div>
-                    <p class="subtitulo2">Polen</p>
-                </a>                
-            </div>
-        </div>
+                </div>  
+            <?php endforeach?>
+        <?php } else{ ?>
+            <p>No hay productos por el momento</p>            
+        <?php }  ?>                      
     </div>
 </div>
 
