@@ -4,6 +4,9 @@
     <a href="/medida" class="boton">Volver</a>
 </div>
 
+<?php 
+    include_once __DIR__ . '/../../templates/alertas.php';
+?>
 
 <form method="POST" class="formulario contenedorFormulario" enctype="multipart/form-data">
 

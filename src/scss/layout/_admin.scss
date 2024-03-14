@@ -20,6 +20,7 @@
     flex-direction: column;
     justify-self: center;
     margin-top: 3rem;
+    padding: 0 2rem;
 }
 .left img{
     height: 400PX;
@@ -54,11 +55,16 @@
 .card__opcionesMedida{
     form{
         display: flex;
-        flex-direction: row;
-        gap: 5rem;
+        flex-direction: column;
+        gap: 2rem;
         margin-bottom: 4rem;
         @include m.tablet {
             gap: 10rem;
+            flex-direction: row;
+        }
+        .boton-actualizar, 
+        .boton-eliminar{
+            width: 100%;
         }
     }
 }

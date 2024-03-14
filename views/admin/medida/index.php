@@ -9,11 +9,11 @@
 
     <form  method="POST" class="buscar">
         <div class="campoBuscar">
-            <label for="">Buscar por Id</label>
+            <label for="codigo">Buscar por Id</label>
             <input type="text" id="codigo" name="codigo">
         </div>        
 
-        <input class="buscar-boton" type="submit" value="Buscar">
+        <input class="boton-comun" type="submit" value="Buscar">
     </form>
 
     <?php
@@ -39,7 +39,7 @@
                
             </div>
         </div>
-    <?php } else {?>
+    <?php } ?>
 <?php
     
     
@@ -50,7 +50,7 @@
             <div >
                 <p class="property-name"><span>Codigo: </span><?php echo $unidad->codigo ?></p>
                 <p class="property-name"><span>Nombre: </span><?php echo $unidad->descripcion ?></p>
-                <p class="property-name"><span>Precio: </span><?php echo $unidad->abreviatura ?></p>
+                <p class="property-name"><span>Abreviatura: </span><?php echo $unidad->abreviatura ?></p>
             </div>
 
             <div class="card__opcionesMedida">
@@ -64,13 +64,13 @@
                         value="Eliminar"
                         onclick="confirmDelete(event, 'formEliminarMedida-<?php echo $unidad->codigo; ?>')")"
                         >
-                    <input type="submit" class="boton-actualizar" formaction="/medida/actualizar" value="Actualizar" >
+                    <!-- <input type="submit" class="boton-actualizar" formaction="/medida/actualizar" value="Actualizar"> -->
+                    <a href="/medida/actualizar?codigo=<?php echo $unidad->codigo?>" class="boton-actualizar">Actualizar</a>
                 </form>
                 <!-- <a href="/medida/actualizar?codigo=<?php echo $unidad->codigo?>" class="boton-actualizar">Actualizar</a> -->
             </div>
         </div>
     <?php } 
-    }
     ?>
 </main>
 

@@ -5,7 +5,7 @@
 </div>
 
 <?php 
-      include_once __DIR__ . '/../../templates/alertas.php';
+    include_once __DIR__ . '/../../templates/alertas.php';
 ?>
 
 <form method="POST" class="formulario contenedorFormulario">

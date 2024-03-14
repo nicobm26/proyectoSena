@@ -13,7 +13,6 @@ class AdminController{
 
     public static function index(Router $router){
         isAdmin();
-
         $router->mostrarVista("admin/index",[
         ]);
     }
@@ -39,6 +38,7 @@ class AdminController{
 
     public static function agregarProducto(Router $router){
         isAdmin();
+        $alertas=[];
 
         $unidadesMedidas = UnidadesMedida::all();    
         // debuguear($unidadesMedidas);
@@ -78,13 +78,15 @@ class AdminController{
         }
 
         $router->mostrarVista("admin/producto/agregarProducto",[
-            'unidadesMedidas' => $unidadesMedidas
+            'unidadesMedidas' => $unidadesMedidas,
+            'alertas' => $alertas
         ]);
     }
 
 
-    public static function actualizarProducto(Router $router){
+    public static function actualizarProducto(Router $router){    
         isAdmin();
+        $alertas=[];
         $unidadesMedidas = UnidadesMedida::all();
         $codigo = $_GET['codigo'];
         $producto = Producto::where('codigo', $codigo);
@@ -94,8 +96,7 @@ class AdminController{
             $producto->sincronizar($args);
 
             $nombreImagen = $producto->codigo . ".jpg";
-            if($_FILES['producto']['tmp_name']['imagen']){
-                // $image = Image::make($_FILES['producto']['tmp_name']['imagen'])->fit(800,600);
+            if($_FILES['producto']['tmp_name']['imagen']){            
                 // $image = Image::make($_FILES['producto']['tmp_name']['imagen'])->resize(600, 400);
                 $image = Image::make($_FILES['producto']['tmp_name']['imagen']);
                 $producto->setImagen($nombreImagen);
@@ -119,7 +120,8 @@ class AdminController{
 
          $router->mostrarVista("admin/producto/actualizarProducto",[
             'unidadesMedidas' => $unidadesMedidas,
-            'producto' => $producto
+            'producto' => $producto,
+            'alertas' => $alertas
         ]);
     }
 

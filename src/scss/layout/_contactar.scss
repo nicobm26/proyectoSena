@@ -143,11 +143,58 @@
 }
 
 .mapa iframe{
+    width: 300px; 
     @include m.tablet {
         border: 1px solid #CED5D7;
         border-radius: 6px;
         background-color: white;
         box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+        width: 400px; 
     }
-    width: 400px;   
+      
+}
+
+.infoContactenos{
+    h2{
+        margin-top: 6rem;
+    }
+}
+
+.infoRedes{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+
+    @include m.tablet {
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+    }
+}
+
+.redSocial{
+    margin-top: 1rem;
+    margin-bottom: 2.6rem;
+    p{
+        margin: 0;
+        color: v.$colorTexto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;    
+    }
+    a{
+        display: flex; /* Usa flexbox para alinear el contenido del enlace */
+        align-items: center; /* Centra verticalmente el contenido del enlace */
+        text-decoration: none; /* Elimina el subrayado del enlace */
+        color: v.$colorTexto; /* Color del texto */
+    }
+    
+    &:nth-child(1){
+        justify-self: end;
+        margin-right: 3rem;
+    }
+    &:nth-child(2){
+        justify-self: start;
+    }
+
 }

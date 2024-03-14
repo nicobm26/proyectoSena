@@ -1,5 +1,5 @@
 <main>
-    <h2>Lista de Productos</h2>
+    <h2 class="titulo">Lista de Productos</h2>
     
     <div class="opciones">
         <a class="boton-opcion" href="/administrarProducto"> Listar Todos</a>
@@ -10,16 +10,17 @@
 
     <form  method="POST" class="buscar">
         <div class="campoBuscar">
-            <label for="">Buscar por Id</label>
+            <label for="codigo">Buscar por Id</label>
             <input type="text" id="codigo" name="codigo">
         </div>        
 
-        <input class="buscar-boton" type="submit" value="Buscar">
+        <input class="boton-comun" type="submit" value="Buscar">
     </form>
 
     <?php
     if($producto !=null ){
-                                ?>
+        $unidad = $producto->devolverUnidad();
+    ?>
     <div class="card">
             <!-- Apartado izquierdo con imagen y nombre de la producto -->
             <div class="left">
@@ -33,12 +34,14 @@
                 <p class="property-name"><span>Nombre: </span><?php echo $producto->nombre ?></p>
                 <p class="property-name"><span>Precio: </span><?php echo $producto->precio ?></p>
                 <p class="property-name"><span>Stock: </span> <?php echo $producto->stock ?> </p>
-                <p class="property-name"><span>Medida: </span> <?php echo $producto->codigoMedida ?></p>
+                <p class="property-name"><span>Medida: </span> 
+                    <?php echo (isset($unidad)) ? $unidad->descripcion : "" ?>
+                </p>
                 <p class="property-name"><span>Cedula Administrador: </span> <?php echo $producto->cedulaAdministrador ?> </p>
                 <!-- Agrega más características aquí según sea necesario -->
             </div>
 
-            <div class="opciones">
+            <div class="card__opciones">
                 <form method="post" class="w-100" action="/producto/eliminar">
                     <input type="hidden" name="codigo" value="<?php echo $producto->codigo ?>">
                     <input type="hidden" name="tipo" value="producto">
@@ -52,7 +55,8 @@
     
     
     foreach ($productos as $producto) {
-        ?>
+        $unidad = $producto->devolverUnidad();
+    ?>
    <div class="card">
             <!-- Apartado izquierdo con imagen y nombre de la producto -->
             <div class="left">
@@ -65,7 +69,7 @@
                 <p class="property-name"><span>Nombre: </span><?php echo $producto->nombre ?></p>
                 <p class="property-name"><span>Precio: </span><?php echo $producto->precio ?></p>
                 <p><span>Stock: </span> <?php echo $producto->stock ?> </p>
-                <p><span>Medida: </span><?php echo $producto->codigoMedida ?></p>
+                <p><span>Medida: </span> <?php echo (isset($unidad)) ? $unidad->descripcion : "" ?></p>
                 <p><span>Cedula Administrador:</span> <?php echo $producto->cedulaAdministrador ?> </p>
                 <!-- Agrega más características aquí según sea necesario -->
             </div>

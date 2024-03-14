@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="/build/css/app.css">
     <!--=============== REMIXICONS ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16"  href="../build/img/LogoOpcion3.png">
+
 </head>
 <body>
     <header class="bg-menu">
