@@ -55,6 +55,14 @@ class Producto extends ActiveRecord{
             self::$alertas['error'][] = 'El stock es obligatorio';       
 
         if(!$this->codigoMedida)
-            self::$alertas['error'][] = 'El codigo de medida es obligatorio';            
+            self::$alertas['error'][] = 'El codigo de medida es obligatorio';   
+        
+        return self::$alertas;
+    }
+
+    public function devolverUnidad(){
+        $unidad = UnidadesMedida::where('codigo', $this->codigoMedida);
+        // debuguear($unidad);
+        return $unidad;
     }
 }
