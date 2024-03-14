@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apícola Génesis</title>
+    <title>Apícolas Génesis</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
@@ -27,10 +27,9 @@
             <ul class="nav__menu">
                 <li class="menu__item">
                     <a href="/" class="item__link">
-                        <img class="menu__inicio" src="./build/img/logoOpcion1.png" alt="Logo de Apicola Genesis">                        
-                    </a>
+                        <img class="menu__inicio" src="../build/img/LogoOpcion3.png" alt="Logo de Apicola Genesis">
                 </li>
-                <li class="menu__item"><a class="item__link" href="/nosotros">Apícola Génesis</a></li>
+                <li class="menu__item"><a class="item__link" href="/nosotros">Apícolas Génesis</a></li>
                 <li class="menu__item"><a class="item__link" href="/productos">Productos</a></li>
                 <li class="menu__item"><a class="item__link" href="/contactanos">Contáctenos</a></li>
                 <?php if($auth) {  ?>

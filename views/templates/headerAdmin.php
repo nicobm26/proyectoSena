@@ -17,7 +17,7 @@
             <ul class="nav__menu">
                 <li class="menu__item">
                     <a href="/admin" class="item__link">
-                        <img class="menu__inicio" src="../build/img/logoOpcion1.png" alt="Logo de Apicola Genesis">
+                        <img class="menu__inicio" src="../build/img/LogoOpcion3.png" alt="Logo de Apicola Genesis">
                     </a>
                 </li>
                 <li class="menu__item"><p class="item__link" href="/nosotros">Bienvenid@: <?php echo $_SESSION['fullname']?></p></li>
