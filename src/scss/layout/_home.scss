@@ -17,6 +17,9 @@
   height: 100vh;
   min-height: 500px;
   margin: 0;
+  @include m.tablet {
+    height: calc(100vh - 90px);
+  }
 }
 #slider li {
   background-repeat: no-repeat;

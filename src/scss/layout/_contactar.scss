@@ -102,6 +102,9 @@
     border: 1px solid #CED5D7;
     box-shadow:0 0 0 3px #EEF5F7;
     margin: 5px 0;
+    @include m.tablet{
+        width: 90%;
+    }
 }
 
 .campo-contacto textarea{
@@ -114,6 +117,7 @@
     width: 100%;
     @include m.tablet {
         width: auto;
+        width: 90%;
     };
 }
 
@@ -168,6 +172,7 @@
     @include m.tablet {
         grid-template-columns: 1fr 1fr;
         justify-items: center;
+        gap: 8rem;
     }
 }
 
@@ -188,13 +193,15 @@
         text-decoration: none; /* Elimina el subrayado del enlace */
         color: v.$colorTexto; /* Color del texto */
     }
-    
-    &:nth-child(1){
-        justify-self: end;
-        margin-right: 3rem;
-    }
-    &:nth-child(2){
-        justify-self: start;
-    }
 
+    @include m.tablet {
+        &:nth-child(1){
+            justify-self: end;
+            margin-right: 3rem;
+        }
+        &:nth-child(2){
+            justify-self: start;
+        }
+    }
+       
 }
