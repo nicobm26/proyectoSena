@@ -39,9 +39,9 @@ $unidad = new UnidadesMedida();
             </p>
 
             <div>
-                <form action="/eliminarCarrito" method="post">
+                <form action="#" method="post" class="formEliminarCarrito">
                     <input type="hidden"  value="<?php echo $producto->codigo ?>">
-                    <input type="submit" value="Eliminar">
+                    <input class="boton2" type="submit" value="Eliminar">
                 </form>
 
             </div>
