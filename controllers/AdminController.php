@@ -46,14 +46,17 @@ class AdminController{
         if($_SERVER['REQUEST_METHOD'] === 'POST'){    
             $producto = new Producto( array_map("trim", $_POST['producto']) );
             $producto->cedulaAdministrador = $_SESSION['cedula'];
-            $imagen = $_FILES['producto'];
+            // debuguear($_FILES);
             
-            $nombreImagen = $_POST['producto']['codigo']  . ".jpg";;
+            //$imagen = $_FILES['producto'];
+            
+            $nombreImagen = $_POST['producto']['codigo']  . ".jpg";
             // debuguear($nombreImagen);
             // debuguear( $nombreImagen);
-            if($_FILES['producto']['tmp_name']['imagen']){
+            if($_FILES['file-1']['tmp_name']){
                 // create new image instance (800 x 600)
-                $image = Image::make($_FILES['producto']['tmp_name']['imagen'])->fit(800,600);            
+                // $image = Image::make($_FILES['file-1']['tmp_name'])->fit(800,600);           
+                $image = Image::make($_FILES['file-1']['tmp_name']); 
                 $producto->setImagen($nombreImagen);
             }
             
@@ -95,7 +98,7 @@ class AdminController{
             // debuguear($codigoNuevo);
             $producto->sincronizar($args);
 
-            // debuguear($_FILES);
+            // debuguear($_FILES["file-1"]["tmp_name"]);
 
             $nombreImagen = $producto->codigo . ".jpg";
             if($_FILES['file-1']['tmp_name']){            

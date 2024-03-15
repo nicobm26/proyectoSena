@@ -76,9 +76,8 @@
                 type="file"
                 name="file-1"
                 id="file-1"
-                class="inputfile inputfile-1"
-                data-multiple-caption="{count} archivos seleccionados"
-                multiple
+                class="inputfile inputfile-1"  
+                accept="image/jpeg, image/png"             
             />
             <label for="file-1">
                 <svg
