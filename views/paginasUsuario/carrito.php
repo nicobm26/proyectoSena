@@ -20,7 +20,7 @@ $unidad = new UnidadesMedida();
                 </div>
                <div class="carrito__item__info">
                     <p> <?php echo $producto->nombre ?> </p>
-                    <p> <?php echo $producto->cantidad . " " .  $unidad->abreviatura ?> </p>
+                    <p> <?php echo $producto->cantidad ?>  <?php echo (isset($unidad)) ? $unidad->abreviatura : ""?> </p>
                </div>                
             </div>
 

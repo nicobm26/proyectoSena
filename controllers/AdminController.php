@@ -95,19 +95,22 @@ class AdminController{
             // debuguear($codigoNuevo);
             $producto->sincronizar($args);
 
+            // debuguear($_FILES);
+
             $nombreImagen = $producto->codigo . ".jpg";
-            if($_FILES['producto']['tmp_name']['imagen']){            
+            if($_FILES['file-1']['tmp_name']){            
                 // $image = Image::make($_FILES['producto']['tmp_name']['imagen'])->resize(600, 400);
-                $image = Image::make($_FILES['producto']['tmp_name']['imagen']);
+                $image = Image::make($_FILES['file-1']['tmp_name']);
                 $producto->setImagen($nombreImagen);
             }
+           
 
             $alertas = $producto->validar();
             // debuguear($producto);
             //revisar que el arreglo de errores este vacio
             if(empty($alertas)){
                 // Realiza el resize con intervention  Y Setear la imagen
-                if($_FILES['producto']['tmp_name']['imagen']){
+                if($_FILES['file-1']['tmp_name']){
                     $image->save(CARPETA_IMAGENES . $nombreImagen);
                 }                
                 $resultado = $producto->actualizarLlave('codigo', $producto->codigo);
